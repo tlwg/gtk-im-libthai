@@ -1,3 +1,9 @@
+2003-12-24  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c:
+	Ignore CapsLock & NumLock bits in determining a key event non-char.
+	(bug reported by Suppachoke Santiwichaya)
+
 2003-09-10  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* configure.in, Makefile.am, src/Makefile.am:
