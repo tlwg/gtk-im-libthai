@@ -202,14 +202,20 @@ get_previous_cell (GtkIMContextThai *context_thai)
       gchar *tis_text, tis_char;
       tis_text = g_convert (surrounding, cursor_index, "TIS-620", "UTF-8",
                             NULL, NULL, NULL);
+g_printf("surrounding=%s\n", surrounding);
       if (tis_text)
         {
           int char_index;
 
+g_printf("tis_text=%s\n", tis_text);
           char_index = g_utf8_pointer_to_offset (surrounding,
                                                  surrounding + cursor_index);
           th_prev_cell (tis_text, char_index, &the_cell, TRUE);
           g_free (tis_text);
+        }
+      else
+        {
+g_print("g_convert returns null\n");
         }
       g_free (surrounding);
     }

@@ -1,0 +1,8 @@
+gtk-im-libthai
+
+0.1.2
+=====
+
+- Fix problem with CapsLock & NumLock (reported by Suppachoke Santiwichaya)
+- Fix problem with keypad digit keys (reported by Suppachoke Santiwichaya)
+
