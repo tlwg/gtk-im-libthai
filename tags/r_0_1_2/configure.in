@@ -1,0 +1,85 @@
+# require autoconf 2.52
+AC_PREREQ(2.52)
+
+# Process this file with autoconf to produce a configure script.
+AC_INIT(ChangeLog)
+
+# Save this value here, since automake will set cflags later
+cflags_set=${CFLAGS+set}
+
+## Versions of dependencies
+GLIB_REQUIRED_VERSION=2.1.4
+GTK_REQUIRED_VERSION=2.2.0
+LIBTHAI_REQUIRED_VERSION=0.1.2
+
+dnl Initialize automake stuff
+AM_INIT_AUTOMAKE(gtk-im-libthai, 0.1.2)
+
+dnl Initialize libtool
+AC_PROG_CC
+AM_DISABLE_STATIC
+AC_LIBTOOL_WIN32_DLL
+AM_PROG_LIBTOOL
+
+dnl Initialize maintainer mode
+AM_MAINTAINER_MODE
+
+AC_MSG_CHECKING([for some Win32 platform])
+case "$host" in
+  *-*-mingw*|*-*-cygwin*)
+    platform_win32=yes
+    ;;
+  *)
+    platform_win32=no
+    ;;
+esac
+AC_MSG_RESULT([$platform_win32])
+AM_CONDITIONAL(PLATFORM_WIN32, test "$platform_win32" = "yes")
+
+# Build time sanity check...
+AM_SANITY_CHECK
+
+# Checks for programs.
+AC_ISC_POSIX
+AM_PROG_CC_STDC
+AC_PROG_INSTALL
+AC_PROG_MAKE_SET
+
+## Initial sanity check, done here so that users get told they 
+## have the wrong dependencies as early in the process as possible.
+## Later on we actually use the cflags/libs from separate pkg-config
+## calls. Oh, also the later pkg-config calls don't include 
+## the version requirements since those make the module lists 
+## annoying to construct
+PKG_CHECK_MODULES(BASE_DEPENDENCIES, glib-2.0 >= $GLIB_REQUIRED_VERSION gtk+-2.0 >= $GTK_REQUIRED_VERSION libthai >= $LIBTHAI_REQUIRED_VERSION)
+
+#ALL_LINGUAS=""
+#AM_GNU_GETTEXT([external])
+##AM_GLIB_GNU_GETTEXT
+#LIBS="$LIBS $INTLLIBS"
+#AM_GLIB_DEFINE_LOCALEDIR(GTK_LOCALEDIR)
+
+GTK_API_VERSION=2.0
+AC_SUBST(GTK_API_VERSION)
+
+GTK_BINARY_VERSION=`$PKG_CONFIG --variable=gtk_binary_version gtk+-2.0`
+AC_SUBST(GTK_BINARY_VERSION)
+
+GTK_DEP_LIBS="`$PKG_CONFIG --libs gtk+-2.0`"
+GTK_DEP_CFLAGS="`$PKG_CONFIG --cflags  gtk+-2.0`"
+
+AC_SUBST(GTK_DEP_LIBS)
+AC_SUBST(GTK_DEP_CFLAGS)
+
+LIBTHAI_DEP_LIBS="`$PKG_CONFIG --libs libthai`"
+LIBTHAI_DEP_CFLAGS="`$PKG_CONFIG --cflags libthai`"
+
+AC_SUBST(LIBTHAI_DEP_LIBS)
+AC_SUBST(LIBTHAI_DEP_CFLAGS)
+
+#  po/Makefile.in m4/Makefile 
+AC_OUTPUT(
+  Makefile
+  src/Makefile
+)
+

@@ -1,0 +1,46 @@
+2004-02-22  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* NEWS, configure.in:
+	Version 0.1.2.
+
+2003-12-28  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c:
+	Don't include keypad keys that generate characters in
+	is_context_lost_key().
+	(yet another bug reported by Supphachoke Santiwichaya)
+
+2003-12-24  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c:
+	Ignore CapsLock & NumLock bits in determining a key event non-char.
+	(bug reported by Supphachoke Santiwichaya)
+
+2003-09-10  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in, Makefile.am, src/Makefile.am:
+	Get rid of gettext for the time being.
+
+	* src/Makefile.am:
+	Add DISTCLEANFILES to pass 'make distcheck'.
+
+	* configure.in:
+	Require libthai 0.1.2.
+	Version 0.1.1.
+
+2003-03-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c:
+	Remove debug messages.
+
+2003-03-23  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.am (SUBDIRS): Add m4.
+	(ACLOCAL_AMFLAGS): New variable.
+	(EXTRA_DIST): New variable.
+	* configure.in (AC_OUTPUT): Add po/Makefile.in,
+
+2003-03-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* First create the project.
+
