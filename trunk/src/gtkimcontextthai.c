@@ -267,11 +267,6 @@ gtk_im_context_thai_filter_keypress (GtkIMContext *context,
 
   context_cell = get_previous_cell (context_thai);
   new_char = mygdk_keyval_to_tis (event->keyval);
-/* THEP */
-  g_print ("context.base=[%c]\n", context_cell.base);
-  g_print ("  context.hilo=[%c]\n", context_cell.hilo);
-  g_print ("  context.top=[%c]\n", context_cell.top);
-  g_print ("new_char[%c]\n", new_char);
   if (th_validate(context_cell, new_char, &conv))
     {
       if (conv.offset < 0)
