@@ -1,8 +1,15 @@
+2003-12-28  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c:
+	Don't include keypad keys that generate characters in
+	is_context_lost_key().
+	(yet another bug reported by Supphachoke Santiwichaya)
+
 2003-12-24  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/gtkimcontextthai.c:
 	Ignore CapsLock & NumLock bits in determining a key event non-char.
-	(bug reported by Suppachoke Santiwichaya)
+	(bug reported by Supphachoke Santiwichaya)
 
 2003-09-10  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
