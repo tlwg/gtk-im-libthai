@@ -29,6 +29,11 @@
 #include <gtk/gtkimmodule.h>
 #include "gtkimcontextthai.h"
 
+/* Quick hack on lack of gettext support */
+#ifndef GTK_LOCALEDIR
+  #define GTK_LOCALEDIR ""
+#endif
+
 GType type_thai = 0;
 
 static const GtkIMContextInfo thai_info = { 

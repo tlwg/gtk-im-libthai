@@ -1,5 +1,7 @@
 ## Makefile.am for gtk+/modules/input
 
+DISTCLEANFILES = gtk.immodules
+
 if PLATFORM_WIN32
 no_undefined = -no-undefined
 endif
