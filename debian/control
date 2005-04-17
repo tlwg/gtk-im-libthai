@@ -1,0 +1,20 @@
+Source: gtk-im-libthai
+Section: libs
+Priority: optional
+Maintainer: Theppitak Karoonboonyanan <thep@linux.thai.net>
+Build-Depends: debhelper (>= 4.0.0), autotools-dev, libthai-dev (>= 0.1.2-1), libgtk2.0-dev (>= 2.2.0-1)
+Standards-Version: 3.6.1
+
+Package: gtk-im-libthai
+Architecture: any
+Depends: libthai0 (>= 0.1.2-1), libgtk2.0-0 (>= 2.2.0-1)
+Description: GTK+ Input Method Module using LibThai
+ LibThai is a set of Thai language support routines aimed to ease
+ developers' tasks to incorporate Thai language support in their applications.
+ It includes important Thai-specific functions e.g. word breaking, input and
+ output methods as well as basic character and string supports. LibThai is an
+ Open Source and collaborative effort initiated by Thai Linux Working Group and
+ opened for all contributors.
+ .
+ This package provides third-party plugin for Thai input method in GTK+,
+ including input sequence correction, using LibThai.
