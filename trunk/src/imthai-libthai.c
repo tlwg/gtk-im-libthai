@@ -34,9 +34,9 @@
   #define GTK_LOCALEDIR ""
 #endif
 
-GType type_thai = 0;
+GType type_libthai = 0;
 
-static const GtkIMContextInfo thai_info = { 
+static const GtkIMContextInfo libthai_info = { 
   "thai-libthai",	   /* ID */
   N_("Thai (libthai)"),	   /* Human readable name */
   "gtk+",	   /* Translation domain */
@@ -45,13 +45,13 @@ static const GtkIMContextInfo thai_info = {
 };
 
 static const GtkIMContextInfo *info_list[] = {
-  &thai_info
+  &libthai_info
 };
 
 void
 im_module_init (GTypeModule *module)
 {
-  gtk_im_context_thai_register_type (module);
+  gtk_im_context_libthai_register_type (module);
 }
 
 void 
@@ -71,7 +71,7 @@ GtkIMContext *
 im_module_create (const gchar *context_id)
 {
   if (strcmp (context_id, "thai-libthai") == 0)
-    return gtk_im_context_thai_new ();
+    return gtk_im_context_libthai_new ();
   else
     return NULL;
 }
