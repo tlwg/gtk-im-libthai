@@ -1,3 +1,9 @@
+2005-10-16  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.{c,h}, src/imthai-libthai.c:
+	Renamed GtkIMContextThai -> GtkIMContextLibThai, to prevent name clash
+	when installing with gtk-im-extra.
+
 2004-02-22  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* NEWS, configure.in:
