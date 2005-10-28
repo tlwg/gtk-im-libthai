@@ -1,3 +1,7 @@
+2005-10-28  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* COPYING:  Update FSF address.
+
 2005-10-16  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/gtkimcontextthai.{c,h}, src/imthai-libthai.c:
