@@ -153,7 +153,7 @@ mygdk_keyval_to_tis (guint keyval)
   len = g_unichar_to_utf8 (gdk_keyval_to_unicode (keyval), key_utf8);
   if (len > 0)
     {
-      tischar_t *key_tis_str;
+      gchar *key_tis_str;
       key_tis_str = g_convert (key_utf8, len, "TIS-620", "UTF-8",
                                NULL, NULL, NULL);
       if (key_tis_str)
@@ -199,7 +199,7 @@ get_previous_cell (GtkIMContextLibThai *context_libthai)
   if (gtk_im_context_get_surrounding ((GtkIMContext *)context_libthai,
                                       &surrounding, &cursor_index))
     {
-      gchar *tis_text, tis_char;
+      gchar *tis_text;
       tis_text = g_convert (surrounding, cursor_index, "TIS-620", "UTF-8",
                             NULL, NULL, NULL);
       if (tis_text)
@@ -208,7 +208,7 @@ get_previous_cell (GtkIMContextLibThai *context_libthai)
 
           char_index = g_utf8_pointer_to_offset (surrounding,
                                                  surrounding + cursor_index);
-          th_prev_cell (tis_text, char_index, &the_cell, TRUE);
+          th_prev_cell ((thchar_t *) tis_text, char_index, &the_cell, TRUE);
           g_free (tis_text);
         }
       g_free (surrounding);
@@ -230,7 +230,7 @@ gtk_im_context_libthai_commit_chars (GtkIMContextLibThai *context_libthai,
 {
   gchar *utf8;
 
-  utf8 = g_convert (s, len, "UTF-8", "TIS-620", NULL, NULL, NULL);
+  utf8 = g_convert ((gchar *) s, len, "UTF-8", "TIS-620", NULL, NULL, NULL);
   if (!utf8)
     return FALSE;
 
@@ -284,7 +284,8 @@ gtk_im_context_libthai_filter_keypress (GtkIMContext *context,
 #endif /* !GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK */
 
       return gtk_im_context_libthai_commit_chars (context_libthai,
-                                                  conv.conv, strlen(conv.conv));
+                                                  conv.conv,
+                                                  strlen((char *) conv.conv));
     }
   else
     {
