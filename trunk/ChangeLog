@@ -1,5 +1,10 @@
 2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* src/gtkimcontextthai.c (get_previous_cell): Initialized tis_text
+	before using.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* src/gtkimcontextthai.c (get_previous_cell): Tried to convert
 	surrounding text at next characters until successful.
 	Thanks to Suppachoke Suntiwichaya for bug report that led to the fix.

@@ -200,7 +200,7 @@ get_previous_cell (GtkIMContextLibThai *context_libthai)
                                       &surrounding, &cursor_index))
     {
       gchar *s;
-      gchar *tis_text;
+      gchar *tis_text = NULL;
 
       s = surrounding;
       while (*s)
