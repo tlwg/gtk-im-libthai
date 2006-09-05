@@ -2,24 +2,21 @@ if PLATFORM_WIN32
 no_undefined = -no-undefined
 endif
 
-INCLUDES = \
-	-DG_DISABLE_DEPRECATED	 			\
-	-DGDK_PIXBUF_DISABLE_DEPRECATED			\
-	-DGDK_DISABLE_DEPRECATED			\
-	-DGTK_DISABLE_DEPRECATED 			\
-	@GTK_DEP_CFLAGS@ \
-	@LIBTHAI_DEP_CFLAGS@
+INCLUDES =			\
+	$(GTK_CFLAGS)		\
+	$(LIBTHAI_CFLAGS)
 
-
-LDADDS = \
-	@GTK_DEP_LIBS@ \
-	@LIBTHAI_DEP_LIBS@
-
+LDADDS =			\
+	$(GTK_LIBS)		\
+	$(LIBTHAI_LIBS)
 
 moduledir = $(libdir)/gtk-2.0/$(GTK_BINARY_VERSION)/immodules
 
+module_LTLIBRARIES =		\
+	im-thai-libthai.la
+
 im_thai_libthai_la_LDFLAGS = -rpath $(moduledir) -avoid-version -module $(no_undefined)
-im_thai_libthai_la_SOURCES = 		\
+im_thai_libthai_la_SOURCES =	\
 	gtkimcontextthai.c 	\
 	gtkimcontextthai.h	\
 	imthai-libthai.c
@@ -41,7 +38,4 @@ install-data-hook:
 	  echo "*** system using gtk-query-immodules-2.0" ; \
 	  echo "***" ; \
         fi
-
-module_LTLIBRARIES =				\
-	im-thai-libthai.la
 
