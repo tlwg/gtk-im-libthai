@@ -2,12 +2,12 @@ Source: gtk-im-libthai
 Section: libs
 Priority: optional
 Maintainer: Theppitak Karoonboonyanan <thep@linux.thai.net>
-Build-Depends: debhelper (>= 4.0.0), autotools-dev, libthai-dev (>= 0.1.2-1), libgtk2.0-dev (>= 2.2.0-1), libgtk2.0-bin
+Build-Depends: debhelper (>= 4.0.0), autotools-dev, libthai-dev (>= 0.1.2-1), libgtk2.0-dev (>= 2.2.0-1)
 Standards-Version: 3.7.2
 
 Package: gtk-im-libthai
 Architecture: any
-Depends: libthai0 (>= 0.1.2-1), libgtk2.0-0 (>= 2.2.0-1)
+Depends: ${shlibs:Depends}, ${misc:Depends}, libgtk2.0-bin
 Description: GTK+ Input Method Module using LibThai
  LibThai is a set of Thai language support routines aimed to ease
  developers' tasks to incorporate Thai language support in their applications.
