@@ -199,15 +199,28 @@ get_previous_cell (GtkIMContextLibThai *context_libthai)
   if (gtk_im_context_get_surrounding ((GtkIMContext *)context_libthai,
                                       &surrounding, &cursor_index))
     {
+      gchar *s;
       gchar *tis_text;
-      tis_text = g_convert (surrounding, cursor_index, "TIS-620", "UTF-8",
-                            NULL, NULL, NULL);
+
+      s = surrounding;
+      while (*s)
+        {
+          gchar *t;
+
+          tis_text = g_convert (s, cursor_index, "TIS-620", "UTF-8",
+                                NULL, NULL, NULL);
+          if (tis_text)
+            break;
+
+          t = g_utf8_next_char (s);
+          cursor_index -= t - s;
+          s = t;
+        }
       if (tis_text)
         {
           int char_index;
 
-          char_index = g_utf8_pointer_to_offset (surrounding,
-                                                 surrounding + cursor_index);
+          char_index = g_utf8_pointer_to_offset (s, s + cursor_index);
           th_prev_cell ((thchar_t *) tis_text, char_index, &the_cell, TRUE);
           g_free (tis_text);
         }
