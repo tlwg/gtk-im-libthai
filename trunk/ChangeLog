@@ -1,5 +1,16 @@
 2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* configure.in: Cleaned up configure script. Removed checks for GLIB
+	and assumed it's satisfied by GTK. Used CFLAGS and LIBS directly from
+	PKG_CHECK_MODULES().
+
+	* src/Makefile.am (INCLUDES), (LDADDS): Used CFLAGS and LIBS from
+	PKG_CHECK_MODULES() in configure.in. Rearranged rules a little bit.
+
+	* ChangeLog: Fixed version number for 0.1.3 release.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* src/Makefile.am: Remove unnecessary build of gtk.immodules.
 
 2006-07-03  Theppitak Karoonboonyanan <thep@linux.thai.net>
@@ -10,7 +21,7 @@
 2006-03-13  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* NEWS, configure.in:
-	Version 0.1.2.
+	Version 0.1.3.
 
 2005-10-28  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
