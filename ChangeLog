@@ -1,5 +1,10 @@
 2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* src/gtkimcontextthai.c (get_previous_cell): Also fall back to
+	bufferred context on character code conversion failure.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* configure.in: Cleaned up configure script. Removed checks for GLIB
 	and assumed it's satisfied by GTK. Used CFLAGS and LIBS directly from
 	PKG_CHECK_MODULES().
