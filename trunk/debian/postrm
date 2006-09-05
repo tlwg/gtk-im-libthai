@@ -20,7 +20,7 @@ set -e
 
 case "$1" in
        purge|remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-        gtk-query-immodules-2.0 > /etc/gtk-2.0/gtk.immodules
+        update-gtk-immodules
         ;;
 
     *)

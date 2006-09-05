@@ -19,11 +19,11 @@ set -e
 
 case "$1" in
     configure)
-        gtk-query-immodules-2.0 > /etc/gtk-2.0/gtk.immodules
+        update-gtk-immodules
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
-        gtk-query-immodules-2.0 > /etc/gtk-2.0/gtk.immodules
+        update-gtk-immodules
     ;;
 
     *)
