@@ -211,6 +211,13 @@ get_previous_cell (GtkIMContextLibThai *context_libthai)
           th_prev_cell ((thchar_t *) tis_text, char_index, &the_cell, TRUE);
           g_free (tis_text);
         }
+#ifndef GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK
+      else
+        {
+          th_prev_cell (context_libthai->char_buff, context_libthai->buff_tail,
+                        &the_cell, TRUE);
+        }
+#endif /* !GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK */
       g_free (surrounding);
     }
 #ifndef GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK
