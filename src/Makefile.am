@@ -1,7 +1,3 @@
-## Makefile.am for gtk+/modules/input
-
-DISTCLEANFILES = gtk.immodules
-
 if PLATFORM_WIN32
 no_undefined = -no-undefined
 endif
@@ -49,7 +45,3 @@ install-data-hook:
 module_LTLIBRARIES =				\
 	im-thai-libthai.la
 
-gtk.immodules: Makefile.am $(module_LTLIBRARIES)
-	gtk-query-immodules-2.0 *.la > gtk.immodules
-
-all-local: gtk.immodules

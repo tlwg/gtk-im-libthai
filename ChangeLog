@@ -1,3 +1,7 @@
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/Makefile.am: Remove unnecessary build of gtk.immodules.
+
 2006-07-03  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/gtkimcontextthai.c: Fix char signedness warnings. Remove unused
