@@ -1,5 +1,10 @@
 2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* src/gtkimcontextthai.c (get_previous_cell): Tried to convert
+	surrounding text at next characters until successful.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* src/gtkimcontextthai.c (get_previous_cell): Also fall back to
 	bufferred context on character code conversion failure.
 
