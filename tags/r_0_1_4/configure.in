@@ -1,0 +1,51 @@
+# require autoconf 2.52
+AC_PREREQ(2.52)
+
+# Process this file with autoconf to produce a configure script.
+AC_INIT(ChangeLog)
+
+## Versions of dependencies
+GTK_REQUIRED_VERSION=2.2.0
+LIBTHAI_REQUIRED_VERSION=0.1.2
+
+dnl Initialize automake stuff
+AM_INIT_AUTOMAKE(gtk-im-libthai, 0.1.4)
+
+dnl Initialize libtool
+AC_PROG_CC
+AM_DISABLE_STATIC
+AC_LIBTOOL_WIN32_DLL
+AM_PROG_LIBTOOL
+
+AC_MSG_CHECKING([for some Win32 platform])
+case "$host" in
+  *-*-mingw*|*-*-cygwin*)
+    platform_win32=yes
+    ;;
+  *)
+    platform_win32=no
+    ;;
+esac
+AC_MSG_RESULT([$platform_win32])
+AM_CONDITIONAL(PLATFORM_WIN32, test "$platform_win32" = "yes")
+
+# Checks for programs.
+AC_ISC_POSIX
+AM_PROG_CC_STDC
+AC_PROG_INSTALL
+AC_PROG_MAKE_SET
+
+#
+# Checks for required libraries
+#
+PKG_CHECK_MODULES(GTK, gtk+-2.0 >= $GTK_REQUIRED_VERSION)
+PKG_CHECK_MODULES(LIBTHAI, libthai >= $LIBTHAI_REQUIRED_VERSION)
+
+GTK_BINARY_VERSION=`$PKG_CONFIG --variable=gtk_binary_version gtk+-2.0`
+AC_SUBST(GTK_BINARY_VERSION)
+
+AC_OUTPUT(
+  Makefile
+  src/Makefile
+)
+

@@ -1,0 +1,102 @@
+2006-09-13  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* NEWS, configure.in:
+	Version 0.1.4.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c (get_previous_cell): Initialized tis_text
+	before using.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c (get_previous_cell): Tried to convert
+	surrounding text at next characters until successful.
+	Thanks to Suppachoke Suntiwichaya for bug report that led to the fix.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c (get_previous_cell): Also fall back to
+	bufferred context on character code conversion failure.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in: Cleaned up configure script. Removed checks for GLIB
+	and assumed it's satisfied by GTK. Used CFLAGS and LIBS directly from
+	PKG_CHECK_MODULES().
+
+	* src/Makefile.am (INCLUDES), (LDADDS): Used CFLAGS and LIBS from
+	PKG_CHECK_MODULES() in configure.in. Rearranged rules a little bit.
+
+	* ChangeLog: Fixed version number for 0.1.3 release.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/Makefile.am: Remove unnecessary build of gtk.immodules.
+
+2006-07-03  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c: Fix char signedness warnings. Remove unused
+	variable in get_previous_cell().
+
+2006-03-13  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* NEWS, configure.in:
+	Version 0.1.3.
+
+2005-10-28  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* COPYING:  Update FSF address.
+
+2005-10-16  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.{c,h}, src/imthai-libthai.c:
+	Renamed GtkIMContextThai -> GtkIMContextLibThai, to prevent name clash
+	when installing with gtk-im-extra.
+
+2004-02-22  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* NEWS, configure.in:
+	Version 0.1.2.
+
+2003-12-28  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c:
+	Don't include keypad keys that generate characters in
+	is_context_lost_key().
+	(yet another bug reported by Supphachoke Santiwichaya)
+
+2003-12-24  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c:
+	Ignore CapsLock & NumLock bits in determining a key event non-char.
+	(bug reported by Supphachoke Santiwichaya)
+
+2003-09-10  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in, Makefile.am, src/Makefile.am:
+	Get rid of gettext for the time being.
+
+	* src/Makefile.am:
+	Add DISTCLEANFILES to pass 'make distcheck'.
+
+	* configure.in:
+	Require libthai 0.1.2.
+	Version 0.1.1.
+
+2003-03-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c:
+	Remove debug messages.
+
+2003-03-23  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.am (SUBDIRS): Add m4.
+	(ACLOCAL_AMFLAGS): New variable.
+	(EXTRA_DIST): New variable.
+	* configure.in (AC_OUTPUT): Add po/Makefile.in,
+
+2003-03-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* First create the project.
+
