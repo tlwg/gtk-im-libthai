@@ -1,3 +1,16 @@
+gtk-im-libthai (0.1.4-2) unstable; urgency=high
+
+  * Urgency high due to RC bug fix.
+  * debian/postrm:
+    - Check for update-gtk-immodules existence before calling it.
+      Closes: #416759.
+  * debian/install:
+    - Use wildcard for GTK+ binary version directory instead of hard-coding.
+  * debian/dirs:
+    - Remove, unneeded.
+
+ -- Theppitak Karoonboonyanan <thep@linux.thai.net>  Fri, 30 Mar 2007 21:51:36 +0700
+
 gtk-im-libthai (0.1.4-1) unstable; urgency=low
 
   * New upstream release.
