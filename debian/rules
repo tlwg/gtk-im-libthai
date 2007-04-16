@@ -84,6 +84,7 @@ binary-arch: build install
 	dh_compress
 	dh_fixperms
 	dh_makeshlibs --noscripts
+	dh_gtkmodules
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol

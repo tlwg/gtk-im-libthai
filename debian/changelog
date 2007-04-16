@@ -1,3 +1,14 @@
+gtk-im-libthai (0.1.4-3) unstable; urgency=medium
+
+  * Urgency medium due to RC bug fix.
+  * Switch to dh_gtkmodules for GTK+ 2.10 transition. Closes: #419304.
+    - debian/control: Bump Build-Depends libgtk2.0-dev >= 2.10.1-1.
+      Drop dependency on libgtk2.0-bin.
+    - debian/postinst, debian/postrm: Removed.
+    - debian/rules: Call dh_gtkmodules.
+
+ -- Theppitak Karoonboonyanan <thep@linux.thai.net>  Sun, 15 Apr 2007 21:31:25 +0700
+
 gtk-im-libthai (0.1.4-2) unstable; urgency=high
 
   * Urgency high due to RC bug fix.
