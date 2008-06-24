@@ -2,8 +2,12 @@ Source: gtk-im-libthai
 Section: libs
 Priority: optional
 Maintainer: Theppitak Karoonboonyanan <thep@linux.thai.net>
-Build-Depends: debhelper (>= 4.0.0), autotools-dev, libthai-dev (>= 0.1.2-1), libgtk2.0-dev (>= 2.10.1-1)
-Standards-Version: 3.7.2.2
+DM-Upload-Allowed: yes
+Build-Depends: debhelper (>= 4.0.0), autotools-dev, libthai-dev (>= 0.1.2), libgtk2.0-dev (>= 2.10.1)
+Standards-Version: 3.8.0
+Vcs-Cvs: :pserver:anonymous@linux.thai.net:/home/cvs software/gtk-im-libthai
+Vcs-Browser: http://linux.thai.net/viewvc/viewvc.cgi/software/gtk-im-libthai/
+Homepage: http://libthai.sourceforge.net/
 
 Package: gtk-im-libthai
 Architecture: any
