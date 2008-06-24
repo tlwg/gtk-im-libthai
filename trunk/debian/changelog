@@ -1,3 +1,20 @@
+gtk-im-libthai (0.1.4-5) unstable; urgency=low
+
+  * debian/control:
+    - Add Vcs-Cvs, Vcs-Browser, Homepage info
+    - Drop -1 from all versioned build-deps
+    - Add DM-Upload-Allowed
+  * debian/rules:
+    - Do not ignore "make distclean" errors
+    - Update config.{guess,status} before configure, and clean it up on clean
+      target, so the changes are not included in .diff.gz.
+  * debian/copyright: Rewrite in machine-interpretable format.
+  * debian/watch: Fix watch pattern so that only *.tar.gz is matched, not
+    *.tar.gz.md5sum.
+  * Bump standards version to 3.8.0, no change needed.
+
+ -- Theppitak Karoonboonyanan <thep@linux.thai.net>  Fri, 13 Jun 2008 15:59:07 +0700
+
 gtk-im-libthai (0.1.4-4) unstable; urgency=low
 
   * Merge changes from Ubuntu:
