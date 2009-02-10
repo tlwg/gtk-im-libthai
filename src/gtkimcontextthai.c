@@ -23,13 +23,13 @@
 
 #include <gdk/gdkkeysyms.h>
 #include <gdk/gdkkeys.h>
-#include <gtkimcontextthai.h>
+#include "gtkimcontextthai.h"
 
 #include <thai/thcell.h>
 #include <thai/thinp.h>
 
 static void     gtk_im_context_libthai_class_init      (GtkIMContextLibThaiClass *class);
-static void     gtk_im_context_libthai_init            (GtkIMContextLibThai      *im_context_xim);
+static void     gtk_im_context_libthai_init            (GtkIMContextLibThai      *im_context_libthai);
 static gboolean gtk_im_context_libthai_filter_keypress (GtkIMContext             *context,
 						        GdkEventKey              *key);
 
