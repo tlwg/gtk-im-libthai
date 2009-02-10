@@ -1,3 +1,9 @@
+2009-02-10  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c: Include "gtkimcontextthai.h",
+	not <gtkimcontextthai.h>. Adjust argument name for
+	gtk_im_context_libthai_init() prototype.
+
 2006-09-17  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* configure.in: Post-release version bump.
