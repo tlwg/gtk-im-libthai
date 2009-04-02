@@ -30,6 +30,11 @@ else
 	CFLAGS += -O2
 endif
 
+LDFLAGS = -Wl,-z,defs
+
+# Override gtk+-2.0 pkgconfig libs
+GTK_LIBS = -lgtk-x11-2.0 -lgdk-x11-2.0 -lgobject-2.0 -lglib-2.0
+
 config.status: configure
 	dh_testdir
 ifneq "$(wildcard /usr/share/misc/config.sub)" ""
@@ -40,7 +45,9 @@ ifneq "$(wildcard /usr/share/misc/config.guess)" ""
 endif
 
 	# Add here commands to configure the package.
-	./configure $(build_flags) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs"
+	./configure $(build_flags) --prefix=/usr \
+	  --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info \
+	  CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" GTK_LIBS="$(GTK_LIBS)"
 
 
 build: build-stamp
@@ -57,7 +64,6 @@ build-stamp:  config.status
 clean:
 	dh_testdir
 	dh_testroot
-	rm -f build-stamp 
 
 	# Add here commands to clean up after the build process.
 	[ ! -f Makefile ] || $(MAKE) distclean
@@ -74,7 +80,7 @@ endif
 install: build
 	dh_testdir
 	dh_testroot
-	dh_clean -k 
+	dh_prep
 	dh_installdirs
 
 	# Add here commands to install the package into debian/gtk-im-libthai.
@@ -101,7 +107,6 @@ binary-arch: build install
 	dh_strip
 	dh_compress
 	dh_fixperms
-	dh_makeshlibs --noscripts
 	dh_gtkmodules
 	dh_installdeb
 	dh_shlibdeps
