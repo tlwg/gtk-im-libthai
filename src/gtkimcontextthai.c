@@ -295,7 +295,9 @@ gtk_im_context_libthai_filter_keypress (GtkIMContext *context,
           if (!gtk_im_context_delete_surrounding (GTK_IM_CONTEXT (context_libthai),
                                                   conv.offset, -conv.offset))
             {
-              return FALSE;
+              /* Can't correct context, just fall back to rejection */
+              gdk_beep ();
+              return TRUE;
             }
         }
 #ifndef GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK

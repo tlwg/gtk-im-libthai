@@ -1,3 +1,9 @@
+2009-12-16  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c (gtk_im_context_libthai_filter_keypress):
+	When unable to correct sequence, fall back to rejection instead of
+	just giving up.
+
 2009-02-10  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/gtkimcontextthai.c: Include "gtkimcontextthai.h",
