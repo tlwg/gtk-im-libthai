@@ -1,5 +1,9 @@
 gtk-im-libthai
 
+0.1.5 (2009-12-27)
+=====
+- Correctly fall back to rejection when client does not support correction
+
 0.1.4 (2006-09-13)
 =====
 - Better support for text input when surrounding text is mixed with other 
