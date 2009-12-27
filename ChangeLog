@@ -1,3 +1,7 @@
+2009-12-27  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* Makefile.am (EXTRA_DIST): Drop config.rpath.
+
 2009-12-16  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/gtkimcontextthai.c (gtk_im_context_libthai_filter_keypress):
