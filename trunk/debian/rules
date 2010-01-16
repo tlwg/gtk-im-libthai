@@ -35,7 +35,7 @@ LDFLAGS = -Wl,-z,defs
 # Override gtk+-2.0 pkgconfig libs
 GTK_LIBS = -lgtk-x11-2.0 -lgdk-x11-2.0 -lgobject-2.0 -lglib-2.0
 
-config.status: configure
+config.status: configure.in
 	dh_testdir
 
 	[ -d m4 ] || mkdir m4
@@ -63,7 +63,10 @@ clean:
 	dh_testroot
 
 	# Add here commands to clean up after the build process.
-	[ ! -f Makefile ] || $(MAKE) maintainerclean
+	[ ! -f Makefile ] || $(MAKE) maintainer-clean
+	rm -f aclocal.m4 configure ltmain.sh
+	find . -name Makefile.in -exec rm -f {} \;
+	rm -rf m4
 
 	dh_clean 
 
