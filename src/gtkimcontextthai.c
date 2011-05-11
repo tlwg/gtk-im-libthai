@@ -43,15 +43,23 @@ struct _GtkIMContextLibThaiClass
   GtkIMContextClass parent_class;
 };
 
-static void     gtk_im_context_libthai_class_init      (GtkIMContextLibThaiClass *class);
-static void     gtk_im_context_libthai_init            (GtkIMContextLibThai      *im_context_libthai);
-static gboolean gtk_im_context_libthai_filter_keypress (GtkIMContext             *context,
-						        GdkEventKey              *key);
+static void
+gtk_im_context_libthai_class_init (GtkIMContextLibThaiClass *class);
+
+static void
+gtk_im_context_libthai_init (GtkIMContextLibThai *im_context_libthai);
+
+static gboolean
+gtk_im_context_libthai_filter_keypress (GtkIMContext *context,
+                                        GdkEventKey  *key);
 
 #ifndef GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK
-static void     forget_previous_chars (GtkIMContextLibThai *context_libthai);
-static void     remember_previous_char (GtkIMContextLibThai *context_libthai,
-                                        tischar_t new_char);
+static void
+forget_previous_chars (GtkIMContextLibThai *context_libthai);
+
+static void
+remember_previous_char (GtkIMContextLibThai *context_libthai,
+                        tischar_t            new_char);
 #endif /* !GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK */
 
 static GObjectClass *parent_class;
@@ -105,7 +113,8 @@ gtk_im_context_libthai_new (void)
 {
   GtkIMContextLibThai *result;
 
-  result = GTK_IM_CONTEXT_LIBTHAI (g_object_new (GTK_TYPE_IM_CONTEXT_LIBTHAI, NULL));
+  result = GTK_IM_CONTEXT_LIBTHAI (g_object_new (GTK_TYPE_IM_CONTEXT_LIBTHAI,
+                                                 NULL));
 
   return GTK_IM_CONTEXT (result);
 }
@@ -139,19 +148,24 @@ is_context_lost_key (guint keyval)
           keyval == GDK_KEY_Sys_Req ||
           keyval == GDK_KEY_Escape ||
           keyval == GDK_KEY_Delete ||
-          (GDK_KEY_Home <= keyval && keyval <= GDK_KEY_Begin) || /* IsCursorkey */
-          (GDK_KEY_KP_Space <= keyval && keyval <= GDK_KEY_KP_Delete) || /* IsKeypadKey, non-chars only */
-          (GDK_KEY_Select <= keyval && keyval <= GDK_KEY_Break) || /* IsMiscFunctionKey */
-          (GDK_KEY_F1 <= keyval && keyval <= GDK_KEY_F35)); /* IsFunctionKey */
+          /* IsCursorkey */
+          (GDK_KEY_Home <= keyval && keyval <= GDK_KEY_Begin) ||
+          /* IsKeypadKey, non-chars only */
+          (GDK_KEY_KP_Space <= keyval && keyval <= GDK_KEY_KP_Delete) ||
+          /* IsMiscFunctionKey */
+          (GDK_KEY_Select <= keyval && keyval <= GDK_KEY_Break) ||
+          /* IsFunctionKey */
+          (GDK_KEY_F1 <= keyval && keyval <= GDK_KEY_F35));
 }
 
 static gboolean
 is_context_intact_key (guint keyval)
 {
   return (((keyval & 0xFF00) == 0xFF00) &&
-           ((GDK_KEY_Shift_L <= keyval && keyval <= GDK_KEY_Hyper_R) || /* IsModifierKey */
-            (keyval == GDK_KEY_Mode_switch) ||
-            (keyval == GDK_KEY_Num_Lock))) ||
+          ( /* IsModifierKey */
+           (GDK_KEY_Shift_L <= keyval && keyval <= GDK_KEY_Hyper_R) ||
+           (keyval == GDK_KEY_Mode_switch) ||
+           (keyval == GDK_KEY_Num_Lock))) ||
          (((keyval & 0xFE00) == 0xFE00) &&
           (GDK_KEY_ISO_Lock <= keyval && keyval <= GDK_KEY_ISO_Last_Group_Lock));
 }

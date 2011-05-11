@@ -31,12 +31,26 @@ extern "C" {
 
 extern GType gtk_type_im_context_libthai;
 
-#define GTK_TYPE_IM_CONTEXT_LIBTHAI          gtk_type_im_context_libthai
-#define GTK_IM_CONTEXT_LIBTHAI(obj)          (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_TYPE_IM_CONTEXT_LIBTHAI, GtkIMContextLibThai))
-#define GTK_IM_CONTEXT_LIBTHAI_CLASS(klass)  (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_TYPE_IM_CONTEXT_LIBTHAI, GtkIMContextLibThaiClass))
-#define GTK_IS_IM_CONTEXT_LIBTHAI(obj)       (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_TYPE_IM_CONTEXT_LIBTHAI))
-#define GTK_IS_IM_CONTEXT_LIBTHAI_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_TYPE_IM_CONTEXT_LIBTHAI))
-#define GTK_IM_CONTEXT_LIBTHAI_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_TYPE_IM_CONTEXT_LIBTHAI, GtkIMContextLibThaiClass))
+#define GTK_TYPE_IM_CONTEXT_LIBTHAI \
+          gtk_type_im_context_libthai
+#define GTK_IM_CONTEXT_LIBTHAI(obj) \
+          (G_TYPE_CHECK_INSTANCE_CAST ((obj), \
+                                       GTK_TYPE_IM_CONTEXT_LIBTHAI, \
+                                       GtkIMContextLibThai))
+#define GTK_IM_CONTEXT_LIBTHAI_CLASS(klass) \
+          (G_TYPE_CHECK_CLASS_CAST ((klass), \
+                                    GTK_TYPE_IM_CONTEXT_LIBTHAI, \
+                                    GtkIMContextLibThaiClass))
+#define GTK_IS_IM_CONTEXT_LIBTHAI(obj) \
+          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), \
+                                       GTK_TYPE_IM_CONTEXT_LIBTHAI))
+#define GTK_IS_IM_CONTEXT_LIBTHAI_CLASS(klass) \
+          (G_TYPE_CHECK_CLASS_TYPE ((klass), \
+                                    GTK_TYPE_IM_CONTEXT_LIBTHAI))
+#define GTK_IM_CONTEXT_LIBTHAI_GET_CLASS(obj) \
+          (G_TYPE_INSTANCE_GET_CLASS ((obj), \
+                                      GTK_TYPE_IM_CONTEXT_LIBTHAI, \
+                                      GtkIMContextLibThaiClass))
 
 
 typedef guchar tischar_t;
@@ -55,15 +69,18 @@ typedef enum
 typedef thstrict_t GtkIMContextLibThaiISCMode;
 #define GTK_IM_CONTEXT_LIBTHAI_BUFF_SIZE 4
 
-void gtk_im_context_libthai_register_type (GTypeModule *type_module);
-GtkIMContext *gtk_im_context_libthai_new (void);
+void
+gtk_im_context_libthai_register_type (GTypeModule *type_module);
+
+GtkIMContext *
+gtk_im_context_libthai_new (void);
 
 GtkIMContextLibThaiISCMode
-  gtk_im_context_libthai_get_isc_mode (GtkIMContextLibThai *context_libthai);
+gtk_im_context_libthai_get_isc_mode (GtkIMContextLibThai *context_libthai);
 
 GtkIMContextLibThaiISCMode
-  gtk_im_context_libthai_set_isc_mode (GtkIMContextLibThai *context_libthai,
-                                       GtkIMContextLibThaiISCMode mode);
+gtk_im_context_libthai_set_isc_mode (GtkIMContextLibThai *context_libthai,
+                                     GtkIMContextLibThaiISCMode mode);
 
 #ifdef __cplusplus
 }
