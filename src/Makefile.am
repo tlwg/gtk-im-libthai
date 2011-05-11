@@ -41,7 +41,11 @@ endif
 
 # Running this if cross compiling or if DESTDIR is set is going to
 # not work at all, so skip it.
-install-data-hook:
+install-data-hook: update-modules
+
+uninstall-hook: update-modules
+
+update-modules:
 	@if test -z "$(DESTDIR)" ; then \
 	  if [ "X$(INSTALL_GTK2)" = "Xyes" ]; then \
 	    echo $(mkinstalldirs) $(libdir)/gtk-2.0/$(GTK2_BINARY_VERSION) ; \
