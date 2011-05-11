@@ -27,6 +27,22 @@
 #include <thai/thcell.h>
 #include <thai/thinp.h>
 
+struct _GtkIMContextLibThai
+{
+  GtkIMContext object;
+
+#ifndef GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK
+  tischar_t                  char_buff[GTK_IM_CONTEXT_LIBTHAI_BUFF_SIZE];
+  short                      buff_tail;
+#endif /* !GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK */
+  GtkIMContextLibThaiISCMode isc_mode;
+};
+
+struct _GtkIMContextLibThaiClass
+{
+  GtkIMContextClass parent_class;
+};
+
 static void     gtk_im_context_libthai_class_init      (GtkIMContextLibThaiClass *class);
 static void     gtk_im_context_libthai_init            (GtkIMContextLibThai      *im_context_libthai);
 static gboolean gtk_im_context_libthai_filter_keypress (GtkIMContext             *context,

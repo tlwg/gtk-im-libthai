@@ -55,22 +55,6 @@ typedef enum
 typedef thstrict_t GtkIMContextLibThaiISCMode;
 #define GTK_IM_CONTEXT_LIBTHAI_BUFF_SIZE 4
 
-struct _GtkIMContextLibThai
-{
-  GtkIMContext object;
-
-#ifndef GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK
-  tischar_t                  char_buff[GTK_IM_CONTEXT_LIBTHAI_BUFF_SIZE];
-  short                      buff_tail;
-#endif /* !GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK */
-  GtkIMContextLibThaiISCMode isc_mode;
-};
-
-struct _GtkIMContextLibThaiClass
-{
-  GtkIMContextClass parent_class;
-};
-
 void gtk_im_context_libthai_register_type (GTypeModule *type_module);
 GtkIMContext *gtk_im_context_libthai_new (void);
 

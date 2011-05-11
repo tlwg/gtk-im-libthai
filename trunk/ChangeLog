@@ -1,5 +1,10 @@
 2011-05-11  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* src/gtkimcontextthai.h, src/gtkimcontextthai.c:
+	Move actual struct definition from .h to .c.
+
+2011-05-11  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* src/Makefile.am: Also update module list on uninstall.
 
 2011-05-11  Theppitak Karoonboonyanan <thep@linux.thai.net>
