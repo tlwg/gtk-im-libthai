@@ -9,7 +9,7 @@ GTK_REQUIRED_VERSION=2.2.0
 LIBTHAI_REQUIRED_VERSION=0.1.2
 
 dnl Initialize automake stuff
-AM_INIT_AUTOMAKE(gtk-im-libthai, 0.1.5)
+AM_INIT_AUTOMAKE(gtk-im-libthai, 0.1.5svn)
 
 dnl Initialize libtool
 AC_PROG_CC
