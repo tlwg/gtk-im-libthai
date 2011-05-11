@@ -1,5 +1,32 @@
 2011-05-11  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	Add GTK+ 3 support.
+
+	* configure.in:
+	  - Add --disable-gtk2 and --disable-gtk3 configure options to allow
+	    manually specifying versions to build.
+	  - Check for GTK2 and GTK3 as configured.
+	  - Split GTK2 and GTK3 variables.
+	  - Add AM_CONDITIONAL for GTK2 and GTK3 builds.
+	* src/Makefile.am:
+	  - List source files in a common variable.
+	  - Add conditional targets for gtk2 and gtk3 modules and apply
+	    configured variables separately.
+	  - Update install-data-hook target to update gtk2 and gtk3 module
+	    index separately.
+
+	Port code to GTK+ 3.
+
+	* src/gtkimcontextthai.h:
+	  - Include <gtk/gtk.h>, not specific header.
+	  - Replace deprecated GTK_CHECK_*() macros with G_TYPE_*().
+	* src/gtkimcontextthai.c:
+	  - Drop <gdk/gdkkeys.h> include, just <gtk/gtk.h> in
+	    gtkimcontextthai.h should already does it.
+	  - Replace deprecated GDK_* keysyms with GDK_KEY_* version.
+
+2011-05-11  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* configure.in: Post-release version suffix added.
 
 2009-12-27  Theppitak Karoonboonyanan <thep@linux.thai.net>
