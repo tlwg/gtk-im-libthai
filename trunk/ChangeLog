@@ -1,5 +1,9 @@
 2011-05-11  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* src/Makefile.am: Also update module list on uninstall.
+
+2011-05-11  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	Add GTK+ 3 support.
 
 	* configure.in:
