@@ -1,3 +1,8 @@
+2011-05-12  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in:
+	Bump GTK2_REQUIRED_VERSION to 2.21.8, for GDK_KEY_* macros.
+
 2011-05-11  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/gtkimcontextthai.h, src/gtkimcontextthai.c:
