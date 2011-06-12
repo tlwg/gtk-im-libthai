@@ -48,14 +48,19 @@ uninstall-hook: update-modules
 update-modules:
 	@if test -z "$(DESTDIR)" ; then \
 	  if [ "X$(INSTALL_GTK2)" = "Xyes" ]; then \
-	    echo $(mkinstalldirs) $(libdir)/gtk-2.0/$(GTK2_BINARY_VERSION) ; \
-	    $(mkinstalldirs) $(libdir)/gtk-2.0/$(GTK2_BINARY_VERSION) ; \
-	    echo "gtk-query-immodules-2.0 > $(libdir)/gtk-2.0/$(GTK2_BINARY_VERSION)/gtk.immodules" ; \
-	    gtk-query-immodules-2.0 > $(libdir)/gtk-2.0/$(GTK2_BINARY_VERSION)/gtk.immodules ; \
+	    GTK2_IM_MODULE_FILE=`dirname $(gtk2moduledir)`/gtk.immodules ; \
+	    if test -f $${GTK2_IM_MODULE_FILE} ; then \
+	      CMD="gtk-query-immodules-2.0 > $${GTK2_IM_MODULE_FILE}" ; \
+	      echo $${CMD} ; eval $${CMD} ; \
+	    fi \
 	  fi ; \
 	  if [ "X$(INSTALL_GTK3)" = "Xyes" ]; then \
-	    echo "gtk-query-immodules-3.0 --update-cache" ; \
-	    gtk-query-immodules-3.0 --update-cache ; \
+	    GTK3_IM_MODULE_FILE=`dirname $(gtk3moduledir)`/immodules.cache ; \
+	    if test -f $${GTK3_IM_MODULE_FILE}; then \
+	      CMD="GTK_IM_MODULE_FILE=$${GTK3_IM_MODULE_FILE}" ; \
+	      CMD="$${CMD} gtk-query-immodules-3.0 --update-cache" ; \
+	      echo $${CMD} ; eval $${CMD} ; \
+	    fi \
 	  fi \
 	else \
 	  echo "***" ; \

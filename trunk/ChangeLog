@@ -1,3 +1,10 @@
+2011-06-12  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/Makefile.am (update-modules):
+	Only update immodule registry when the registry file exists,
+	fixing 'make distcheck' error while still [un]installable in real
+	installations.
+
 2011-05-12  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* configure.in:
