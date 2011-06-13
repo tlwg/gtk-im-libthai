@@ -1,3 +1,9 @@
+2011-06-13  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/Makefile.am:
+	Build immodules for GTK+ 2 and 3 in different subdirectories, so that
+	the same module name can be used across different GTK+ versions.
+
 2011-06-12  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/Makefile.am (update-modules):
