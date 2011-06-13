@@ -1,8 +1,8 @@
 # require autoconf 2.52
-AC_PREREQ(2.52)
+AC_PREREQ(2.59)
 
 # Process this file with autoconf to produce a configure script.
-AC_INIT(ChangeLog)
+AC_INIT(gtk-im-libthai, 0.1.5svn, thep@linux.thai.net)
 
 ## Versions of dependencies
 GTK2_REQUIRED_VERSION=2.21.8
@@ -10,7 +10,9 @@ GTK3_REQUIRED_VERSION=3.0.0
 LIBTHAI_REQUIRED_VERSION=0.1.2
 
 dnl Initialize automake stuff
-AM_INIT_AUTOMAKE(gtk-im-libthai, 0.1.5svn)
+AM_INIT_AUTOMAKE
+AC_CONFIG_SRCDIR([src/imthai-libthai.c])
+AC_CONFIG_MACRO_DIR([m4])
 
 dnl Initialize libtool
 AC_PROG_CC

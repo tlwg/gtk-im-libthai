@@ -1,5 +1,14 @@
 2011-06-13  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* configure.in, Makefile.am:
+	  - Use new form of AC_INIT and AM_INIT_AUTOMAKE.
+	  - Add AC_CONFIG_MACRO_DIR and "-I m4" ACLOCAL_AMFLAGS, as suggested
+	    by libtool.
+	* configure.in -> configure.ac:
+	  - Renamed for modern style.
+
+2011-06-13  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* src/Makefile.am:
 	Build immodules for GTK+ 2 and 3 in different subdirectories, so that
 	the same module name can be used across different GTK+ versions.
