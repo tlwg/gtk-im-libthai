@@ -13,12 +13,13 @@ INSTALL_GTK2 = yes
 gtk2moduledir = $(libdir)/gtk-2.0/$(GTK2_BINARY_VERSION)/immodules
 
 gtk2module_LTLIBRARIES =	\
-	im-thai-libthai2.la
+	gtk2/im-thai-libthai.la
 
-im_thai_libthai2_la_LDFLAGS = -rpath $(gtk2moduledir) -avoid-version -module $(no_undefined)
-im_thai_libthai2_la_SOURCES = $(MODULE_SRC)
-im_thai_libthai2_la_CPPFLAGS = $(GTK2_CFLAGS) $(LIBTHAI_CFLAGS)
-im_thai_libthai2_la_LIBADD = $(GTK2_LIBS) $(LIBTHAI_LIBS)
+gtk2_im_thai_libthai_la_LDFLAGS = \
+	-rpath $(gtk2moduledir) -avoid-version -module $(no_undefined)
+gtk2_im_thai_libthai_la_SOURCES = $(MODULE_SRC)
+gtk2_im_thai_libthai_la_CPPFLAGS = $(GTK2_CFLAGS) $(LIBTHAI_CFLAGS)
+gtk2_im_thai_libthai_la_LIBADD = $(GTK2_LIBS) $(LIBTHAI_LIBS)
 else
 INSTALL_GTK2 = no
 endif
@@ -29,12 +30,13 @@ INSTALL_GTK3 = yes
 gtk3moduledir = $(libdir)/gtk-3.0/$(GTK3_BINARY_VERSION)/immodules
 
 gtk3module_LTLIBRARIES =	\
-	im-thai-libthai3.la
+	gtk3/im-thai-libthai.la
 
-im_thai_libthai3_la_LDFLAGS = -rpath $(gtk3moduledir) -avoid-version -module $(no_undefined)
-im_thai_libthai3_la_SOURCES = $(MODULE_SRC)
-im_thai_libthai3_la_CPPFLAGS = $(GTK3_CFLAGS) $(LIBTHAI_CFLAGS)
-im_thai_libthai3_la_LIBADD = $(GTK3_LIBS) $(LIBTHAI_LIBS)
+gtk3_im_thai_libthai_la_LDFLAGS = \
+	-rpath $(gtk3moduledir) -avoid-version -module $(no_undefined)
+gtk3_im_thai_libthai_la_SOURCES = $(MODULE_SRC)
+gtk3_im_thai_libthai_la_CPPFLAGS = $(GTK3_CFLAGS) $(LIBTHAI_CFLAGS)
+gtk3_im_thai_libthai_la_LIBADD = $(GTK3_LIBS) $(LIBTHAI_LIBS)
 else
 INSTALL_GTK3 = no
 endif
