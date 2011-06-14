@@ -302,7 +302,10 @@ gtk_im_context_libthai_filter_keypress (GtkIMContext *context,
     return FALSE;
 
   if (event->state & (GDK_MODIFIER_MASK
-                      & ~(GDK_SHIFT_MASK | GDK_LOCK_MASK | GDK_MOD2_MASK)) ||
+                      & ~(GDK_SHIFT_MASK
+                          | GDK_LOCK_MASK /* CapsLock */
+                          | GDK_MOD2_MASK /* NumLock */
+                          | GDK_MOD5_MASK /* Level3 Shift */)) ||
       is_context_lost_key (event->keyval))
     {
 #ifndef GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK

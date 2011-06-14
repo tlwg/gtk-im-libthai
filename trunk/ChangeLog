@@ -1,3 +1,8 @@
+2011-06-14  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c (gtk_im_context_libthai_filter_keypress):
+	Also ignore Level3 Shift bit when determining a key event as non-char.
+
 2011-06-13  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* configure.in, Makefile.am:
