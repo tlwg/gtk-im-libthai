@@ -1,5 +1,11 @@
 2011-06-16  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* src/Makefile.am (update-modules):
+	Also test immodules file in SYSCONFDIR, which is upstream GTK+ 2
+	behavior. (LIBDIR location is Debian modification).
+
+2011-06-16  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* src/gtkimcontextthai.c (gtk_im_context_libthai_filter_keypress):
 	Instead of negatively masking what wanted to get passed, just
 	directly mask what wanted to be filtered out, as the passed list
