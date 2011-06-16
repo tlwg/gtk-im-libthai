@@ -50,7 +50,10 @@ uninstall-hook: update-modules
 update-modules:
 	@if test -z "$(DESTDIR)" ; then \
 	  if [ "X$(INSTALL_GTK2)" = "Xyes" ]; then \
-	    GTK2_IM_MODULE_FILE=`dirname $(gtk2moduledir)`/gtk.immodules ; \
+	    GTK2_IM_MODULE_FILE=$(libdir)/gtk-2.0/$(GTK2_BINARY_VERSION)/gtk.immodules ; \
+	    if ! test -f $${GTK2_IM_MODULE_FILE} ; then \
+	      GTK2_IM_MODULE_FILE=$(sysconfdir)/gtk-2.0/gtk.immodules ; \
+	    fi ; \
 	    if test -f $${GTK2_IM_MODULE_FILE} ; then \
 	      CMD="gtk-query-immodules-2.0 > $${GTK2_IM_MODULE_FILE}" ; \
 	      echo $${CMD} ; eval $${CMD} ; \
