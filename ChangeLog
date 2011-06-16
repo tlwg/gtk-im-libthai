@@ -1,3 +1,10 @@
+2011-06-16  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c (gtk_im_context_libthai_filter_keypress):
+	Instead of negatively masking what wanted to get passed, just
+	directly mask what wanted to be filtered out, as the passed list
+	can grow (now with Level5 Shift).
+
 2011-06-14  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/gtkimcontextthai.c (gtk_im_context_libthai_filter_keypress):
