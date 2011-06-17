@@ -1,3 +1,9 @@
+gtk-im-libthai (0.2.0-2) unstable; urgency=low
+
+  * debian/gtk3-im-libthai.prerm: Fix typo in script.
+
+ -- Theppitak Karoonboonyanan <thep@debian.org>  Fri, 17 Jun 2011 21:52:24 +0700
+
 gtk-im-libthai (0.2.0-1) unstable; urgency=low
 
   * debian/copyright:
