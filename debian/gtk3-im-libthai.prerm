@@ -4,7 +4,7 @@ set -e
 case "$1" in
     remove|upgrade|deconfigure)
         update-alternatives --remove xinput-th_TH \
-            /etc/X11/xinit/xinput.d/th-gtk-im-libthai
+            /etc/X11/xinit/xinput.d/th-gtk3-im-libthai
         ;;
     failed-upgrade)
         ;;
