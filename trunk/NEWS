@@ -1,5 +1,10 @@
 gtk-im-libthai
 
+0.2.0 (2011-06-17)
+=====
+- Ported to GTK+ 3 (GTK+ 2 is still supported in the mean time)
+- Fix bug with level 3 and level 5 keys
+
 0.1.5 (2009-12-27)
 =====
 - Correctly fall back to rejection when client does not support correction
