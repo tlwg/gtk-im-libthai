@@ -1,0 +1,29 @@
+gtk-im-libthai
+
+0.2.0 (2011-06-17)
+=====
+- Ported to GTK+ 3 (GTK+ 2 is still supported in the mean time)
+- Fix bug with level 3 and level 5 keys
+
+0.1.5 (2009-12-27)
+=====
+- Correctly fall back to rejection when client does not support correction
+
+0.1.4 (2006-09-13)
+=====
+- Better support for text input when surrounding text is mixed with other 
+  language
+- Clean up configure and build system
+- Fix compiler warnings
+
+0.1.3 (2006-03-13)
+=====
+
+- Fix name clash when installed with gtk-im-extra.
+
+0.1.2
+=====
+
+- Fix problem with CapsLock & NumLock (reported by Suppachoke Santiwichaya)
+- Fix problem with keypad digit keys (reported by Suppachoke Santiwichaya)
+
