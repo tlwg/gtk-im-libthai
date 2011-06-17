@@ -1,3 +1,8 @@
+2011-06-17  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.ac, NEWS:
+	=== Version 0.2.0 ===
+
 2011-06-16  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/Makefile.am (update-modules):
