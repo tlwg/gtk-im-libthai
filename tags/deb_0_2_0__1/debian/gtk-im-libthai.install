@@ -1,0 +1,2 @@
+usr/lib/gtk-2.0/*/immodules/*.so
+debian/im-switch/th-gtk-im-libthai	etc/X11/xinit/xinput.d

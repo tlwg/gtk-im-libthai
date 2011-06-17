@@ -1,0 +1,205 @@
+gtk-im-libthai (0.2.0-1) unstable; urgency=low
+
+  * debian/copyright:
+    - Updated to DEP-5 rev 174.
+    - Update copyright years.
+  * New upstream release, with GTK+ 3 support
+    - New subpackage gtk3-im-libthai
+      + Split debian/{docs,install,postinst,prerm} into gtk-im-libthai.*
+        and gtk3-im-libthai.*
+      + Add im-switch/th-gtk3-im-libthai with the same contents as
+        th-gtk-im-libthai, except DEPENDS.
+      + Install im-switch files with debian/*.install instead of manually in
+        debian/rules
+      + gtk3-im-libthai.{postinst,prerm} installs/removes th-gtk3-im-libthai
+        as an alternative for xinput-th_TH.
+      + When both subpackages are installed at the same time, either
+        th-gtk-im-libthai or th-gtk3-im-libthai alternative will result in
+        the same IM Module name, and GTK+ 2/3 will load the correct versions
+        from their corresponding directories.
+    - Bump build-dep on libgtk2.0-dev to 2.21.8, according to upstream
+    - Add libgtk-3-dev build-dep
+  * debian/rules, debian/control:
+    - Switch to dh 7 + dh-autoreconf
+    - Use "-Wl,--as-needed" LDFLAGS, thus require dh-autoreconf (>= 4)
+      with "--as-needed" option
+    - Skip dh_makeshlibs to avoid meaningless shlibs files and ldconfig calls
+  * Shorten long descriptions. Remove unnecessary messages.
+  * Bump Standards-Version to 3.9.2 (no changes needed)
+
+ -- Theppitak Karoonboonyanan <thep@debian.org>  Fri, 17 Jun 2011 15:28:53 +0700
+
+gtk-im-libthai (0.1.5-2) unstable; urgency=low
+
+  * debian/rules: Fix failure to build twice in a row:
+    - Fix typo '$(MAKE) maintainerclan'
+    - Clean other changed files left over from 'make maintainer-clean'
+    - 'config.status' depends on 'configure.in' instead of 'configure'
+
+ -- Theppitak Karoonboonyanan <thep@debian.org>  Sat, 16 Jan 2010 18:41:02 +0700
+
+gtk-im-libthai (0.1.5-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Theppitak Karoonboonyanan <thep@debian.org>  Sun, 27 Dec 2009 12:32:07 +0700
+
+gtk-im-libthai (0.1.4-7) unstable; urgency=low
+
+  * debian/control:
+    - Update my e-mail address to @debian.org.
+    - Drop DM-Upload-Allowed.
+  * debian/copyright:
+    - Update my e-mail address for debian/* to @debian.org.
+  * debian/rules:
+    - Run autoreconf instead of just updating config.{sub,guess}, as required
+      by libtool
+    - Run 'make maintainerclean' instead of 'make distclean' on clean target,
+      to clear all autoconf-generated files
+  * debian/control:
+    - Build-Depends on libtool, automake, autoconf, for autoreconf.
+    - Drop Build-Depends on autotools-dev
+  * Switch to "3.0 (quilt)" source format.
+  * Bump Standards-Version to 3.8.3 (no changes needed)
+
+ -- Theppitak Karoonboonyanan <thep@debian.org>  Sat, 12 Dec 2009 20:46:06 +0700
+
+gtk-im-libthai (0.1.4-6) unstable; urgency=low
+
+  * VCS moved from CVS to SVN; update Vcs-* fields accordingly.
+  * Bump debhelper compat to level 7
+    - Bump debian/compat to 7
+    - Build-dep on debhelper (>= 7)
+    - debian/rules:
+      + Replace obsoleted 'dh_clean -k' with 'dh_prep'
+      + Remove *-stamp clean-ups in clean target, as dh_clean now does it
+  * debian/rules:
+    - Drop dh_mkshlibs, as this package only provides unversioned loadable
+      module, not what to be linked [lintian]
+    - Define LDFLAGS outside the configure line, for easy adjustment
+    - Override GTK_LIBS as reported by pkg-config, so that only required
+      libraries are linked
+  * Rebuild against libthai-dev 0.1.9-5, to get rid of libdatrie0 direct link.
+  * debian/copyright:
+    - Update format to proposal rev 454
+    - Update copyright year for debian/*
+  * Bump standards version to 3.8.1, no change needed.
+
+ -- Theppitak Karoonboonyanan <thep@linux.thai.net>  Thu, 02 Apr 2009 14:13:02 +0700
+
+gtk-im-libthai (0.1.4-5) unstable; urgency=low
+
+  * debian/control:
+    - Add Vcs-Cvs, Vcs-Browser, Homepage info
+    - Drop -1 from all versioned build-deps
+    - Add DM-Upload-Allowed
+  * debian/rules:
+    - Do not ignore "make distclean" errors
+    - Update config.{guess,status} before configure, and clean it up on clean
+      target, so the changes are not included in .diff.gz.
+  * debian/copyright: Rewrite in machine-interpretable format.
+  * debian/watch: Fix watch pattern so that only *.tar.gz is matched, not
+    *.tar.gz.md5sum.
+  * Bump standards version to 3.8.0, no change needed.
+
+ -- Theppitak Karoonboonyanan <thep@linux.thai.net>  Fri, 13 Jun 2008 15:59:07 +0700
+
+gtk-im-libthai (0.1.4-4) unstable; urgency=low
+
+  * Merge changes from Ubuntu:
+    - debian/control: recommends im-switch.
+    - debian/im-switch/th-gtk-im-libthai, debian/rules: im-switch config file.
+    - debian/postinst, debian/prerm: update alternative.
+  * debian/rules: pass --host=$(DEB_HOST_GNU_TYPE) to configure only when
+    cross compiling.
+  * Bump standards version to 3.7.2.2, no change needed.
+
+ -- Theppitak Karoonboonyanan <thep@linux.thai.net>  Wed, 23 May 2007 15:12:59 +0700
+
+gtk-im-libthai (0.1.4-3) unstable; urgency=medium
+
+  * Urgency medium due to RC bug fix.
+  * Switch to dh_gtkmodules for GTK+ 2.10 transition. Closes: #419304.
+    - debian/control: Bump Build-Depends libgtk2.0-dev >= 2.10.1-1.
+      Drop dependency on libgtk2.0-bin.
+    - debian/postinst, debian/postrm: Removed.
+    - debian/rules: Call dh_gtkmodules.
+
+ -- Theppitak Karoonboonyanan <thep@linux.thai.net>  Sun, 15 Apr 2007 21:31:25 +0700
+
+gtk-im-libthai (0.1.4-2) unstable; urgency=high
+
+  * Urgency high due to RC bug fix.
+  * debian/postrm:
+    - Check for update-gtk-immodules existence before calling it.
+      Closes: #416759.
+  * debian/install:
+    - Use wildcard for GTK+ binary version directory instead of hard-coding.
+  * debian/dirs:
+    - Remove, unneeded.
+
+ -- Theppitak Karoonboonyanan <thep@linux.thai.net>  Fri, 30 Mar 2007 21:51:36 +0700
+
+gtk-im-libthai (0.1.4-1) unstable; urgency=low
+
+  * New upstream release.
+    - Better support for text input when surrounding text is mixed with other 
+      language
+    - Clean up configure and build system
+    - Fix compiler warnings
+  * Bumped standard version to 3.7.2, no changes needed.
+  * Added watch file.
+  * Reverted build-dependency on libgtk2.0-bin introduced in NMU, as it's now
+    unneeded by new upstream. (Actually closes: #384360)
+  * Added dependency on libgtk2.0-bin, and used update-gtk-immodules instead
+    of directly calling gtk-query-immodules-2.0 in postinst and postrm.
+  * Replaced hard-coded depends with ${shlibs:Depends} and ${misc:Depends}.
+  * Fixed debian/dirs so it creates correct dir.
+  * Do not install *.la files.
+  * Removed unused dh_installexamples and dh_installman from debien/rules.
+  * Added back config.sub and config.guess replacements.
+
+ -- Theppitak Karoonboonyanan <thep@linux.thai.net>  Thu, 14 Sep 2006 15:30:19 +0700
+
+gtk-im-libthai (0.1.3-3.1) unstable; urgency=low
+
+  * Non-maintainer upload to fix Failure To Build From Source.
+  * Added libgtk2.0-bin as build-dependency.  Thanks to Aurelien Jarno for the
+    report (Closes: #384360)
+
+ -- Margarita Manterola <marga@debian.org>  Thu, 31 Aug 2006 14:15:45 -0300
+
+gtk-im-libthai (0.1.3-3) unstable; urgency=low
+
+  * actually close ITP bug (Closes: #358544) 
+  * debian/rules:
+    - removed commented debhelper instructions
+
+ -- Theppitak Karoonboonyanan <thep@linux.thai.net>  Mon, 27 Mar 2006 18:07:48 +0700
+
+gtk-im-libthai (0.1.3-2) unstable; urgency=low
+
+  * initial debian version
+  * debian/control:
+    - changed standard version to 3.6.2.2
+  * debian/rules:
+    - removed replacement of upstream's config.sub and config.guess
+  * debian/copyright:
+    - mentioned system file for LGPL-2
+  * debian/docs:
+    - removed zero-byte README until upstream ships a meaningful file
+
+ -- Theppitak Karoonboonyanan <thep@linux.thai.net>  Tue, 21 Mar 2006 18:23:28 +0700
+
+gtk-im-libthai (0.1.3-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Theppitak Karoonboonyanan <thep@linux.thai.net>  Tue, 14 Mar 2006 01:00:34 +0700
+
+gtk-im-libthai (0.1.2-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Theppitak Karoonboonyanan <thep@linux.thai.net>  Sun, 17 Apr 2005 14:19:16 +0700
+
