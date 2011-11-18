@@ -5,8 +5,19 @@ gtk-im-libthai (0.2.0-3) UNRELEASED; urgency=low
     - Upstream license is actually LGPL-2.1, not 2.0.
     - Add extended text for LGPL-2.1 and GPL-2.
     - Update copyright year for upstream source.
+  * Multiarch support:
+    - Bump debhelper compat to level 9.
+    - B-Dep on dpkg-dev (>= 0.16.1~) for dpkg-buildflags.
+    - B-Dep on debhelper (>= 8.9.0~) for dh_auto_configure that uses
+      dpkg-buildflags.
+    - Add "Pre-Depends: ${misc:Pre-Depends}"
+    - Add "Multi-Arch: same"
+    - Replace installation locations /usr/lib/ with /usr/lib/*/
+    - debian/rules:
+      + Use DEB_LDFLAGS_MAINT_APPEND to add --as-needed linker flag.
+    - Hardening build flags are gained as a side-effect.
 
- -- Theppitak Karoonboonyanan <thep@debian.org>  Fri, 18 Nov 2011 19:47:13 +0700
+ -- Theppitak Karoonboonyanan <thep@debian.org>  Fri, 18 Nov 2011 19:49:48 +0700
 
 gtk-im-libthai (0.2.0-2) unstable; urgency=low
 
