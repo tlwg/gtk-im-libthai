@@ -71,18 +71,24 @@ fi
 
 AM_CONDITIONAL(HAS_GTK2,test "X$has_gtk2" = "Xyes")
 if test "X$has_gtk2" = "Xyes"; then
+  GTK2_LIBDIR=`$PKG_CONFIG --variable=libdir gtk+-2.0`
   GTK2_BINARY_VERSION=`$PKG_CONFIG --variable=gtk_binary_version gtk+-2.0`
 else
+  GTK2_LIBDIR=
   GTK2_BINARY_VERSION=
 fi
+AC_SUBST(GTK2_LIBDIR)
 AC_SUBST(GTK2_BINARY_VERSION)
 
 AM_CONDITIONAL(HAS_GTK3,test "X$has_gtk3" = "Xyes")
 if test "X$has_gtk3" = "Xyes"; then
+  GTK3_LIBDIR=`$PKG_CONFIG --variable=libdir gtk+-3.0`
   GTK3_BINARY_VERSION=`$PKG_CONFIG --variable=gtk_binary_version gtk+-3.0`
 else
+  GTK3_LIBDIR=
   GTK3_BINARY_VERSION=
 fi
+AC_SUBST(GTK3_LIBDIR)
 AC_SUBST(GTK3_BINARY_VERSION)
 
 PKG_CHECK_MODULES(LIBTHAI, libthai >= $LIBTHAI_REQUIRED_VERSION)

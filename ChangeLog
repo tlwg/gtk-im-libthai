@@ -1,5 +1,17 @@
 2011-11-20  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	Install immodules under appropriate libdir, as some distros have
+	relocated it for multi-arch support.
+
+	* configure.ac:
+	  - Query for libdir from gtk+-{2.0,3.0} pkg-config.
+	* src/Makefile.am:
+	  - Use the libdir in module dirs.
+	  - Simplify GTK2_IM_MODULE_FILE in update-modules target, like
+	    what's done for GTK3 counterpart.
+
+2011-11-20  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* configure.ac: Post-release version suffix added.
 
 2011-06-17  Theppitak Karoonboonyanan <thep@linux.thai.net>
