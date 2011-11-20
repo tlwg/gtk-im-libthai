@@ -1,5 +1,9 @@
 gtk-im-libthai
 
+0.2.1 (2011-11-20)
+=====
+- Multiarch-aware installation
+
 0.2.0 (2011-06-17)
 =====
 - Ported to GTK+ 3 (GTK+ 2 is still supported in the mean time)
