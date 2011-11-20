@@ -12,13 +12,14 @@ gtk-im-libthai (0.2.1-1) UNRELEASED; urgency=low
       dpkg-buildflags.
     - debian/rules:
       + Use DEB_LDFLAGS_MAINT_APPEND to add --as-needed linker flag.
+    - Override package-needs-versioned-debhelper-build-depends lintian warning.
   * Multiarch support (gtk2 only):
     - Bump libgtk2.0-dev B-Dep to 2.24.5-4, first multiarch version.
     - Add "Pre-Depends: ${misc:Pre-Depends}"
     - Add "Multi-Arch: same"
     - Replace installation locations /usr/lib/ with /usr/lib/*/
 
- -- Theppitak Karoonboonyanan <thep@debian.org>  Sun, 20 Nov 2011 10:12:38 +0700
+ -- Theppitak Karoonboonyanan <thep@debian.org>  Sun, 20 Nov 2011 11:48:31 +0700
 
 gtk-im-libthai (0.2.0-2) unstable; urgency=low
 
