@@ -10,7 +10,7 @@ MODULE_SRC =			\
 if HAS_GTK2
 INSTALL_GTK2 = yes
 
-gtk2moduledir = $(libdir)/gtk-2.0/$(GTK2_BINARY_VERSION)/immodules
+gtk2moduledir = $(GTK2_LIBDIR)/gtk-2.0/$(GTK2_BINARY_VERSION)/immodules
 
 gtk2module_LTLIBRARIES =	\
 	gtk2/im-thai-libthai.la
@@ -27,7 +27,7 @@ endif
 if HAS_GTK3
 INSTALL_GTK3 = yes
 
-gtk3moduledir = $(libdir)/gtk-3.0/$(GTK3_BINARY_VERSION)/immodules
+gtk3moduledir = $(GTK3_LIBDIR)/gtk-3.0/$(GTK3_BINARY_VERSION)/immodules
 
 gtk3module_LTLIBRARIES =	\
 	gtk3/im-thai-libthai.la
@@ -50,7 +50,7 @@ uninstall-hook: update-modules
 update-modules:
 	@if test -z "$(DESTDIR)" ; then \
 	  if [ "X$(INSTALL_GTK2)" = "Xyes" ]; then \
-	    GTK2_IM_MODULE_FILE=$(libdir)/gtk-2.0/$(GTK2_BINARY_VERSION)/gtk.immodules ; \
+	    GTK2_IM_MODULE_FILE=`dirname $(gtk2moduledir)`/gtk.immodules ; \
 	    if ! test -f $${GTK2_IM_MODULE_FILE} ; then \
 	      GTK2_IM_MODULE_FILE=$(sysconfdir)/gtk-2.0/gtk.immodules ; \
 	    fi ; \
