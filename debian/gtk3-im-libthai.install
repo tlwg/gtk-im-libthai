@@ -1,2 +1,2 @@
-usr/lib/*/gtk-3.0/*/immodules/*.so
+usr/lib/gtk-3.0/*/immodules/*.so
 debian/im-switch/th-gtk3-im-libthai	etc/X11/xinit/xinput.d
