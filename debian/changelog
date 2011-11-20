@@ -1,5 +1,7 @@
-gtk-im-libthai (0.2.1-1) UNRELEASED; urgency=low
+gtk-im-libthai (0.2.1-1) unstable; urgency=low
 
+  * New upstream release
+    - Multiarch-aware installation.
   * debian/copyright:
     - Use non-forwarding format URL. Bump to revision 202.
     - Upstream license is actually LGPL-2.1, not 2.0.
@@ -20,7 +22,7 @@ gtk-im-libthai (0.2.1-1) UNRELEASED; urgency=low
     - Add "Multi-Arch: same"
     - Replace installation locations /usr/lib/ with /usr/lib/*/
 
- -- Theppitak Karoonboonyanan <thep@debian.org>  Sun, 20 Nov 2011 11:50:11 +0700
+ -- Theppitak Karoonboonyanan <thep@debian.org>  Sun, 20 Nov 2011 12:02:04 +0700
 
 gtk-im-libthai (0.2.0-2) unstable; urgency=low
 
