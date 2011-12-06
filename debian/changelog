@@ -6,11 +6,11 @@ gtk-im-libthai (0.2.1-2) UNRELEASED; urgency=low
   * Drop the deprecated im-switch from Recommends, replace with im-config
     (>= 0.6). (See #649188, #650244)
   * debian/gtk[3]-im-libthai.preinst:
-    - Clean up old im-switch xinput-th_TH alternatives.
+    - Clean up old im-switch xinput-th_TH conffiles and alternatives links.
   * debian/gtk[3]-im-libthai.{postinst,prerm}:
     - Drop old im-switch xinput-th_TH alternatives installation/removal.
 
- -- Theppitak Karoonboonyanan <thep@debian.org>  Tue, 06 Dec 2011 12:54:04 +0700
+ -- Theppitak Karoonboonyanan <thep@debian.org>  Tue, 06 Dec 2011 13:11:01 +0700
 
 gtk-im-libthai (0.2.1-1) unstable; urgency=low
 
