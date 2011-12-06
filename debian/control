@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Theppitak Karoonboonyanan <thep@debian.org>
 Build-Depends: dpkg-dev (>= 0.16.1~), debhelper (>= 8.9.0~),
  dh-autoreconf (>= 4), pkg-config, libthai-dev (>= 0.1.2),
- libgtk2.0-dev (>= 2.24.5-4), libgtk-3-dev
+ libgtk2.0-dev (>= 2.24.5-4), libgtk-3-dev (>= 3.2.2-3)
 Standards-Version: 3.9.2
 Vcs-Svn: http://linux.thai.net/svn/software/gtk-im-libthai
 Vcs-Browser: http://linux.thai.net/websvn/wsvn/software.gtk-im-libthai/?sc=0
