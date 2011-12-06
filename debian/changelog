@@ -3,8 +3,10 @@ gtk-im-libthai (0.2.1-2) UNRELEASED; urgency=low
   * debian/gtk3-im-libthai.install: Install immodule at gtk+3 MultiArch dir
     (Closes: #651087)
   * Bump B-Dep on libgtk-3-dev to (>= 3.2.2-3), for MultiArch libdir.
+  * Drop the deprecated im-switch from Recommends, replace with im-config
+    (>= 0.6). (See #649188, #650244)
 
- -- Theppitak Karoonboonyanan <thep@debian.org>  Tue, 06 Dec 2011 12:00:41 +0700
+ -- Theppitak Karoonboonyanan <thep@debian.org>  Tue, 06 Dec 2011 12:03:22 +0700
 
 gtk-im-libthai (0.2.1-1) unstable; urgency=low
 

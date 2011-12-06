@@ -15,7 +15,7 @@ Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: im-switch
+Recommends: im-config (>= 0.6)
 Description: GTK+ 2 Input Method Module using LibThai
  LibThai is a set of Thai language support routines aimed to ease
  developers' tasks to incorporate Thai language support in their applications.
@@ -28,7 +28,7 @@ Description: GTK+ 2 Input Method Module using LibThai
 Package: gtk3-im-libthai
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: im-switch
+Recommends: im-config (>= 0.6)
 Description: GTK+ 3 Input Method Module using LibThai
  LibThai is a set of Thai language support routines aimed to ease
  developers' tasks to incorporate Thai language support in their applications.
