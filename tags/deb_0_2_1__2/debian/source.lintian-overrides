@@ -1,0 +1,2 @@
+# We are using experimental version of debhelper
+gtk-im-libthai source: package-needs-versioned-debhelper-build-depends 9

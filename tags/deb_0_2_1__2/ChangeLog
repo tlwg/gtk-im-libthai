@@ -1,0 +1,243 @@
+2011-11-20  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.ac, NEWS:
+	=== Version 0.2.1 ===
+
+2011-11-20  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	Install immodules under appropriate libdir, as some distros have
+	relocated it for multi-arch support.
+
+	* configure.ac:
+	  - Query for libdir from gtk+-{2.0,3.0} pkg-config.
+	* src/Makefile.am:
+	  - Use the libdir in module dirs.
+	  - Simplify GTK2_IM_MODULE_FILE in update-modules target, like
+	    what's done for GTK3 counterpart.
+
+2011-11-20  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.ac: Post-release version suffix added.
+
+2011-06-17  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.ac, NEWS:
+	=== Version 0.2.0 ===
+
+2011-06-16  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/Makefile.am (update-modules):
+	Also test immodules file in SYSCONFDIR, which is upstream GTK+ 2
+	behavior. (LIBDIR location is Debian modification).
+
+2011-06-16  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c (gtk_im_context_libthai_filter_keypress):
+	Instead of negatively masking what wanted to get passed, just
+	directly mask what wanted to be filtered out, as the passed list
+	can grow (now with Level5 Shift).
+
+2011-06-14  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c (gtk_im_context_libthai_filter_keypress):
+	Also ignore Level3 Shift bit when determining a key event as non-char.
+
+2011-06-13  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in, Makefile.am:
+	  - Use new form of AC_INIT and AM_INIT_AUTOMAKE.
+	  - Add AC_CONFIG_MACRO_DIR and "-I m4" ACLOCAL_AMFLAGS, as suggested
+	    by libtool.
+	* configure.in -> configure.ac:
+	  - Renamed for modern style.
+
+2011-06-13  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/Makefile.am:
+	Build immodules for GTK+ 2 and 3 in different subdirectories, so that
+	the same module name can be used across different GTK+ versions.
+
+2011-06-12  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/Makefile.am (update-modules):
+	Only update immodule registry when the registry file exists,
+	fixing 'make distcheck' error while still [un]installable in real
+	installations.
+
+2011-05-12  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in:
+	Bump GTK2_REQUIRED_VERSION to 2.21.8, for GDK_KEY_* macros.
+
+2011-05-11  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.h, src/gtkimcontextthai.c:
+	Reformat source.
+
+2011-05-11  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.h, src/gtkimcontextthai.c:
+	Move actual struct definition from .h to .c.
+
+2011-05-11  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/Makefile.am: Also update module list on uninstall.
+
+2011-05-11  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	Add GTK+ 3 support.
+
+	* configure.in:
+	  - Add --disable-gtk2 and --disable-gtk3 configure options to allow
+	    manually specifying versions to build.
+	  - Check for GTK2 and GTK3 as configured.
+	  - Split GTK2 and GTK3 variables.
+	  - Add AM_CONDITIONAL for GTK2 and GTK3 builds.
+	* src/Makefile.am:
+	  - List source files in a common variable.
+	  - Add conditional targets for gtk2 and gtk3 modules and apply
+	    configured variables separately.
+	  - Update install-data-hook target to update gtk2 and gtk3 module
+	    index separately.
+
+	Port code to GTK+ 3.
+
+	* src/gtkimcontextthai.h:
+	  - Include <gtk/gtk.h>, not specific header.
+	  - Replace deprecated GTK_CHECK_*() macros with G_TYPE_*().
+	* src/gtkimcontextthai.c:
+	  - Drop <gdk/gdkkeys.h> include, just <gtk/gtk.h> in
+	    gtkimcontextthai.h should already does it.
+	  - Replace deprecated GDK_* keysyms with GDK_KEY_* version.
+
+2011-05-11  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in: Post-release version suffix added.
+
+2009-12-27  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* NEWS:
+	Version 0.1.5.
+
+2009-12-27  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* Makefile.am (EXTRA_DIST): Drop config.rpath.
+
+2009-12-16  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c (gtk_im_context_libthai_filter_keypress):
+	When unable to correct sequence, fall back to rejection instead of
+	just giving up.
+
+2009-02-10  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c: Include "gtkimcontextthai.h",
+	not <gtkimcontextthai.h>. Adjust argument name for
+	gtk_im_context_libthai_init() prototype.
+
+2006-09-17  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in: Post-release version bump.
+
+2006-09-13  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* NEWS, configure.in:
+	Version 0.1.4.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c (get_previous_cell): Initialized tis_text
+	before using.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c (get_previous_cell): Tried to convert
+	surrounding text at next characters until successful.
+	Thanks to Suppachoke Suntiwichaya for bug report that led to the fix.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c (get_previous_cell): Also fall back to
+	bufferred context on character code conversion failure.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in: Cleaned up configure script. Removed checks for GLIB
+	and assumed it's satisfied by GTK. Used CFLAGS and LIBS directly from
+	PKG_CHECK_MODULES().
+
+	* src/Makefile.am (INCLUDES), (LDADDS): Used CFLAGS and LIBS from
+	PKG_CHECK_MODULES() in configure.in. Rearranged rules a little bit.
+
+	* ChangeLog: Fixed version number for 0.1.3 release.
+
+2006-09-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/Makefile.am: Remove unnecessary build of gtk.immodules.
+
+2006-07-03  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c: Fix char signedness warnings. Remove unused
+	variable in get_previous_cell().
+
+2006-03-13  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* NEWS, configure.in:
+	Version 0.1.3.
+
+2005-10-28  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* COPYING:  Update FSF address.
+
+2005-10-16  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.{c,h}, src/imthai-libthai.c:
+	Renamed GtkIMContextThai -> GtkIMContextLibThai, to prevent name clash
+	when installing with gtk-im-extra.
+
+2004-02-22  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* NEWS, configure.in:
+	Version 0.1.2.
+
+2003-12-28  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c:
+	Don't include keypad keys that generate characters in
+	is_context_lost_key().
+	(yet another bug reported by Supphachoke Santiwichaya)
+
+2003-12-24  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c:
+	Ignore CapsLock & NumLock bits in determining a key event non-char.
+	(bug reported by Supphachoke Santiwichaya)
+
+2003-09-10  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in, Makefile.am, src/Makefile.am:
+	Get rid of gettext for the time being.
+
+	* src/Makefile.am:
+	Add DISTCLEANFILES to pass 'make distcheck'.
+
+	* configure.in:
+	Require libthai 0.1.2.
+	Version 0.1.1.
+
+2003-03-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/gtkimcontextthai.c:
+	Remove debug messages.
+
+2003-03-23  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.am (SUBDIRS): Add m4.
+	(ACLOCAL_AMFLAGS): New variable.
+	(EXTRA_DIST): New variable.
+	* configure.in (AC_OUTPUT): Add po/Makefile.in,
+
+2003-03-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* First create the project.
+
