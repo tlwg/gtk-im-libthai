@@ -1,16 +1,17 @@
-gtk-im-libthai (0.2.1-2) UNRELEASED; urgency=low
+gtk-im-libthai (0.2.1-2) unstable; urgency=low
 
-  * debian/gtk3-im-libthai.install: Install immodule at gtk+3 MultiArch dir
-    (Closes: #651087)
-  * Bump B-Dep on libgtk-3-dev to (>= 3.2.2-3), for MultiArch libdir.
-  * Drop the deprecated im-switch from Recommends, replace with im-config
-    (>= 0.6). (See #649188, #650244)
-  * debian/gtk[3]-im-libthai.preinst:
-    - Clean up old im-switch xinput-th_TH conffiles and alternatives links.
-  * debian/gtk[3]-im-libthai.{postinst,prerm}:
-    - Drop old im-switch xinput-th_TH alternatives installation/removal.
+  * Switch to Multiarch for gtk3:
+    - debian/gtk3-im-libthai.install: Install immodule at gtk+3 Multiarch dir
+      (Closes: #651087)
+    - Bump B-Dep on libgtk-3-dev to (>= 3.2.2-3), for Multiarch libdir
+  * Switch from im-switch to im-config (See #649188, #650244): 
+    - Replace the deprecated im-switch Recommends with im-config (>= 0.6)
+    - debian/gtk[3]-im-libthai.preinst:
+      Clean up old im-switch conffiles and xinput-th_TH alternatives links
+    - debian/gtk[3]-im-libthai.{postinst,prerm}:
+      Removed, as im-switch xinput-th_TH alternatives are now gone
 
- -- Theppitak Karoonboonyanan <thep@debian.org>  Tue, 06 Dec 2011 13:11:01 +0700
+ -- Theppitak Karoonboonyanan <thep@debian.org>  Tue, 06 Dec 2011 13:49:32 +0700
 
 gtk-im-libthai (0.2.1-1) unstable; urgency=low
 
