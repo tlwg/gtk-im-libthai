@@ -316,32 +316,29 @@ gtk_im_context_libthai_filter_keypress (GtkIMContext *context,
 
   context_cell = get_previous_cell (context_libthai);
   new_char = mygdk_keyval_to_tis (event->keyval);
-  if (th_validate(context_cell, new_char, &conv))
+  if (!th_validate(context_cell, new_char, &conv))
+    goto reject_char;
+
+  if (conv.offset < 0)
     {
-      if (conv.offset < 0)
+      if (!gtk_im_context_delete_surrounding (GTK_IM_CONTEXT (context_libthai),
+                                              conv.offset, -conv.offset))
         {
-          if (!gtk_im_context_delete_surrounding (GTK_IM_CONTEXT (context_libthai),
-                                                  conv.offset, -conv.offset))
-            {
-              /* Can't correct context, just fall back to rejection */
-              gdk_beep ();
-              return TRUE;
-            }
+          /* Can't correct context, just fall back to rejection */
+          goto reject_char;
         }
+    }
 #ifndef GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK
-      forget_previous_chars (context_libthai);
-      remember_previous_char (context_libthai, new_char);
+  forget_previous_chars (context_libthai);
+  remember_previous_char (context_libthai, new_char);
 #endif /* !GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK */
 
-      return gtk_im_context_libthai_commit_chars (context_libthai,
-                                                  conv.conv,
-                                                  strlen((char *) conv.conv));
-    }
-  else
-    {
-      /* reject character */
-      gdk_beep ();
-    }
+  return gtk_im_context_libthai_commit_chars (context_libthai,
+                                              conv.conv,
+                                              strlen((char *) conv.conv));
+
+reject_char:
+  gdk_beep ();
   return TRUE;
 }
 
