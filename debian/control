@@ -27,6 +27,7 @@ Description: GTK+ 2 Input Method Module using LibThai
 
 Package: gtk3-im-libthai
 Architecture: any
+Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: im-config (>= 0.6)
 Description: GTK+ 3 Input Method Module using LibThai
