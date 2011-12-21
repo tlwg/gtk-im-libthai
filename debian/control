@@ -8,7 +8,7 @@ Build-Depends: dpkg-dev (>= 0.16.1~), debhelper (>= 8.9.0~),
 Standards-Version: 3.9.2
 Vcs-Svn: http://linux.thai.net/svn/software/gtk-im-libthai
 Vcs-Browser: http://linux.thai.net/websvn/wsvn/software.gtk-im-libthai/?sc=0
-Homepage: http://libthai.sourceforge.net/
+Homepage: http://linux.thai.net/projects/libthai
 
 Package: gtk-im-libthai
 Architecture: any
