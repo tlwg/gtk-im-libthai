@@ -338,7 +338,7 @@ gtk_im_context_libthai_filter_keypress (GtkIMContext *context,
                                               strlen((char *) conv.conv));
 
 reject_char:
-  gdk_beep ();
+  gdk_display_beep (gdk_display_get_default());
   return TRUE;
 }
 
