@@ -1,3 +1,14 @@
+2018-02-19  Theppitak Karoonboonyanan <theppitak@gmail.com>
+
+	Update my e-mail address.
+
+	* AUTHORS:
+	* configure.ac:
+	* src/gtkimcontextthai.h:
+	* src/gtkimcontextthai.c:
+	* src/imthai-libthai.c:
+	  - Replace my LTN e-mail address with the gmail one.
+
 2011-12-12  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/gtkimcontextthai.c (gtk_im_context_libthai_filter_keypress):

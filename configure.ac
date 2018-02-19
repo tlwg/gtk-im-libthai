@@ -2,7 +2,7 @@
 AC_PREREQ(2.59)
 
 # Process this file with autoconf to produce a configure script.
-AC_INIT(gtk-im-libthai, 0.2.1svn, thep@linux.thai.net)
+AC_INIT(gtk-im-libthai, 0.2.1svn, theppitak@gmail.com)
 
 ## Versions of dependencies
 GTK2_REQUIRED_VERSION=2.21.8
