@@ -1,5 +1,14 @@
 2018-02-19  Theppitak Karoonboonyanan <theppitak@gmail.com>
 
+	Adjust project title in source files.
+
+	* src/gtkimcontextthai.h:
+	* src/gtkimcontextthai.c:
+	* src/imthai-libthai.c:
+	  - Replace GTK title with GTK-IM-LibThai.
+
+2018-02-19  Theppitak Karoonboonyanan <theppitak@gmail.com>
+
 	Update my e-mail address.
 
 	* AUTHORS:

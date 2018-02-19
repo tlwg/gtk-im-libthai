@@ -1,4 +1,4 @@
-/* GTK - The GIMP Toolkit
+/* GTK-IM-LibThai - Thai GTK+ Input Method based-on LibThai
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
