@@ -1,3 +1,21 @@
+2019-07-31  Theppitak Karoonboonyanan <theppitak@gmail.com>
+
+	Fix 'make distcheck' error
+
+	* configure.ac:
+	  - Add '--with-gtk2-immoduledir' and '--with-gtk3-immoduledir'
+	    configure options to allow installing the IM module files
+	    in non-system locations.
+	  - Substitue 'gtk2moduledir' and 'gtk3moduledir' variables
+	    in composed form rather than individual 'GTK2_LIBDIR',
+	    'GTK2_BINARY_VERSION', 'GTK3_LIBDIR', and 'GTK3_BINARY_VERSION'.
+	* src/Makefile.am:
+	  - Drop 'gtk2moduledir' and 'gtk3moduledir' whose definitions
+	    have been moved to configure.ac.
+	* Makefile.am:
+	  - Add 'AM_DISTCHECK_CONFIGURE_FLAGS' to have the IM module files
+	    installed inside the 'distcheck' working area.
+
 2018-02-19  Theppitak Karoonboonyanan <theppitak@gmail.com>
 
 	Replace deprecated gdk_beep() with gdk_display_beep().

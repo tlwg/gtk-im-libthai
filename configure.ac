@@ -77,8 +77,12 @@ else
   GTK2_LIBDIR=
   GTK2_BINARY_VERSION=
 fi
-AC_SUBST(GTK2_LIBDIR)
-AC_SUBST(GTK2_BINARY_VERSION)
+AC_ARG_WITH(gtk2-immoduledir,
+            [AC_HELP_STRING([--with-gtk2-immoduledir=DIR],
+                            [where to install IM module for GTK+ 2 [GTK2_LIBDIR/gtk-2.0/GTK2_BINARY_VERSION/immodules]])],
+            [gtk2moduledir="$withval"],
+            [gtk2moduledir="$GTK2_LIBDIR/gtk-2.0/$GTK2_BINARY_VERSION/immodules"])
+AC_SUBST(gtk2moduledir)
 
 AM_CONDITIONAL(HAS_GTK3,test "X$has_gtk3" = "Xyes")
 if test "X$has_gtk3" = "Xyes"; then
@@ -88,8 +92,12 @@ else
   GTK3_LIBDIR=
   GTK3_BINARY_VERSION=
 fi
-AC_SUBST(GTK3_LIBDIR)
-AC_SUBST(GTK3_BINARY_VERSION)
+AC_ARG_WITH(gtk3-immoduledir,
+            [AC_HELP_STRING([--with-gtk3-immoduledir=DIR],
+                            [where to install IM module for GTK+ 3 [GTK3_LIBDIR/gtk-3.0/GTK3_BINARY_VERSION/immodules]])],
+            [gtk3moduledir="$withval"],
+            [gtk3moduledir="$GTK3_LIBDIR/gtk-3.0/$GTK3_BINARY_VERSION/immodules"])
+AC_SUBST(gtk3moduledir)
 
 PKG_CHECK_MODULES(LIBTHAI, libthai >= $LIBTHAI_REQUIRED_VERSION)
 

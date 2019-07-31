@@ -10,8 +10,6 @@ MODULE_SRC =			\
 if HAS_GTK2
 INSTALL_GTK2 = yes
 
-gtk2moduledir = $(GTK2_LIBDIR)/gtk-2.0/$(GTK2_BINARY_VERSION)/immodules
-
 gtk2module_LTLIBRARIES =	\
 	gtk2/im-thai-libthai.la
 
@@ -26,8 +24,6 @@ endif
 
 if HAS_GTK3
 INSTALL_GTK3 = yes
-
-gtk3moduledir = $(GTK3_LIBDIR)/gtk-3.0/$(GTK3_BINARY_VERSION)/immodules
 
 gtk3module_LTLIBRARIES =	\
 	gtk3/im-thai-libthai.la
