@@ -1,3 +1,10 @@
+2019-08-01  Theppitak Karoonboonyanan <theppitak@gmail.com>
+
+	Use xz compression for release tarball
+
+	* configure.ac:
+	  - Specify "dist-xz no-dist-gzip" options to AM_INIT_AUTOMAKE.
+
 2019-07-31  Theppitak Karoonboonyanan <theppitak@gmail.com>
 
 	Fix 'make distcheck' error

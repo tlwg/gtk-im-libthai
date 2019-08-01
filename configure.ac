@@ -10,7 +10,7 @@ GTK3_REQUIRED_VERSION=3.0.0
 LIBTHAI_REQUIRED_VERSION=0.1.2
 
 dnl Initialize automake stuff
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE(dist-xz no-dist-gzip)
 AC_CONFIG_SRCDIR([src/imthai-libthai.c])
 AC_CONFIG_MACRO_DIR([m4])
 
