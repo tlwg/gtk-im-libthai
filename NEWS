@@ -1,5 +1,12 @@
 gtk-im-libthai
 
+0.2.2 (2019-08-03)
+=====
+- Drop usage of deprecated GTK+ API
+- Working 'make distcheck'
+- XZ release tarball compression
+- New configure option to disable fallback (Use with care!)
+
 0.2.1 (2011-11-20)
 =====
 - Multiarch-aware installation
