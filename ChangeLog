@@ -1,3 +1,18 @@
+2019-08-03  Theppitak Karoonboonyanan <theppitak@gmail.com>
+
+	Add '--disable-fallback' configure option
+
+	The GTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK conditional macro
+	has been prepared for conditional codes in src/gtkimcontextthai.c.
+	Let's provide an option to define it.
+
+	* configure.ac:
+	  - Add '--disable-fallback' option and define 'NO_FALLBACK'
+	    AM_CONDITIONAL accordingly.
+	* src/Makefile.am:
+	  - Add '-DGTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK' CPPFLAGS when
+	    NO_FALLBACK condition is true.
+
 2019-08-01  Theppitak Karoonboonyanan <theppitak@gmail.com>
 
 	Use xz compression for release tarball

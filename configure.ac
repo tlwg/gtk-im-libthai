@@ -99,6 +99,13 @@ AC_ARG_WITH(gtk3-immoduledir,
             [gtk3moduledir="$GTK3_LIBDIR/gtk-3.0/$GTK3_BINARY_VERSION/immodules"])
 AC_SUBST(gtk3moduledir)
 
+# Fallback exclusion
+AC_ARG_ENABLE(fallback,
+              [AC_HELP_STRING([--disable-fallback],
+                              [assume surrounding text support in all GTK+ apps and disable fallback for its absence (Be careful!)])],
+              no_fallback="yes", no_fallback="no")
+AM_CONDITIONAL(NO_FALLBACK,test "X$no_fallback" = "Xyes")
+
 PKG_CHECK_MODULES(LIBTHAI, libthai >= $LIBTHAI_REQUIRED_VERSION)
 
 AC_OUTPUT(

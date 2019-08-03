@@ -17,6 +17,9 @@ gtk2_im_thai_libthai_la_LDFLAGS = \
 	-rpath $(gtk2moduledir) -avoid-version -module $(no_undefined)
 gtk2_im_thai_libthai_la_SOURCES = $(MODULE_SRC)
 gtk2_im_thai_libthai_la_CPPFLAGS = $(GTK2_CFLAGS) $(LIBTHAI_CFLAGS)
+if NO_FALLBACK
+gtk2_im_thai_libthai_la_CPPFLAGS += -DGTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK
+endif
 gtk2_im_thai_libthai_la_LIBADD = $(GTK2_LIBS) $(LIBTHAI_LIBS)
 else
 INSTALL_GTK2 = no
@@ -32,6 +35,9 @@ gtk3_im_thai_libthai_la_LDFLAGS = \
 	-rpath $(gtk3moduledir) -avoid-version -module $(no_undefined)
 gtk3_im_thai_libthai_la_SOURCES = $(MODULE_SRC)
 gtk3_im_thai_libthai_la_CPPFLAGS = $(GTK3_CFLAGS) $(LIBTHAI_CFLAGS)
+if NO_FALLBACK
+gtk3_im_thai_libthai_la_CPPFLAGS += -DGTK_IM_CONTEXT_LIBTHAI_NO_FALLBACK
+endif
 gtk3_im_thai_libthai_la_LIBADD = $(GTK3_LIBS) $(LIBTHAI_LIBS)
 else
 INSTALL_GTK3 = no
