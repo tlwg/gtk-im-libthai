@@ -4,7 +4,7 @@ AC_PREREQ(2.59)
 # Process this file with autoconf to produce a configure script.
 AC_INIT(gtk-im-libthai,
         m4_esyscmd([build-aux/git-version-gen]),
-        theppitak@gmail.com)
+        [https://github.com/tlwg/gtk-im-libthai/issues])
 
 ## Versions of dependencies
 GTK2_REQUIRED_VERSION=2.21.8
