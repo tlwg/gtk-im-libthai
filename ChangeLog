@@ -1,3 +1,19 @@
+2021-09-03  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Apply 'autoupdate' for autoconf 2.71
+
+	* configure.ac:
+	  - Quote m4 strings in AC_INIT() parameters.
+	  - Replace obsolete AM_DISABLE_STATIC and AM_PROG_LIBTOOL
+	    with LT_INIT([disable-static]).
+	  - With this, drop AC_LIBTOOL_WIN32_DLL, as we haven't really
+	    declared dllexport anywhere yet.
+	  - Drop obsolete AC_ISC_POSIX and AM_PROG_CC_STDC.
+	  - Replace obsolete AC_HELP_STRING() with AS_HELP_STRING().
+	  - Replace parameterized AC_OUTPUT() with AC_CONFIG_FILES()
+	    and parameter-less AC_OUTPUT.
+	  - Update AC_PREREQ() from 2.59 to 2.71.
+
 2019-12-20  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Use GitHub issue tracker as bug report address.
